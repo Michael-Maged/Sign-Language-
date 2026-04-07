@@ -18,15 +18,18 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import classification_report, accuracy_score
 from xgboost import XGBClassifier
 
-CSV_PATH    = os.path.join("data", "landmarks.csv")
-MODELS_DIR  = "models"
-MODEL_PATH  = os.path.join(MODELS_DIR, "gesture_model.pkl")
+SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
+BACKEND_DIR  = os.path.dirname(SCRIPT_DIR)
+
+CSV_PATH     = os.path.join(BACKEND_DIR, "data", "landmarks.csv")
+MODELS_DIR   = os.path.join(BACKEND_DIR, "models")
+MODEL_PATH   = os.path.join(MODELS_DIR, "gesture_model.pkl")
 ENCODER_PATH = os.path.join(MODELS_DIR, "label_encoder.pkl")
 
 
 def train():
     if not os.path.exists(CSV_PATH):
-        print(f"landmarks.csv not found — run extract_landmarks.py first.")
+        print("landmarks.csv not found — run extract_landmarks.py first.")
         return
 
     print("Loading landmarks...")
@@ -40,20 +43,22 @@ def train():
     y_enc = le.fit_transform(y)
 
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y_enc, test_size=0.2, random_state=42, stratify=y_enc
+        X, y_enc, test_size=0.15, random_state=42, stratify=y_enc
     )
 
     print(f"  Train: {len(X_train)}  Test: {len(X_test)}")
     print("\nTraining XGBoost...")
 
     model = XGBClassifier(
-        n_estimators=200,
-        max_depth=6,
-        learning_rate=0.1,
+        n_estimators=600,
+        max_depth=7,
+        learning_rate=0.08,
         subsample=0.8,
         colsample_bytree=0.8,
-        use_label_encoder=False,
+        min_child_weight=3,
+        gamma=0.1,
         eval_metric="mlogloss",
+        early_stopping_rounds=40,
         n_jobs=-1,
         random_state=42,
     )

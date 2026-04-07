@@ -31,7 +31,7 @@ export default function HomeScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
       <Text style={styles.title}>Sign Translator</Text>
 
       <Text style={styles.statusText}>{status}</Text>

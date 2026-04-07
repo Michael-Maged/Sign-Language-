@@ -1,11 +1,22 @@
 from fastapi import APIRouter, HTTPException
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 import os
+import json
 
 router = APIRouter()
 
 SIGNS_DIR = "data/signs"
 EXTENSIONS = [".jpg", ".jpeg", ".png", ".gif"]
+
+
+@router.get("/signs/{name}/landmarks")
+def get_sign_landmarks(name: str):
+    path = os.path.join(SIGNS_DIR, f"{name.upper()}.json")
+    if not os.path.exists(path):
+        raise HTTPException(status_code=404, detail=f"No landmarks found for '{name}'")
+    with open(path) as f:
+        return JSONResponse(content=json.load(f))
+
 
 @router.get("/signs/{name}")
 def get_sign(name: str):

@@ -7,6 +7,9 @@ Produces: data/landmarks.csv
 Landmarks are normalised relative to wrist (landmark 0) and scaled by the
 wrist->middle-MCP distance so the model is position- and scale-invariant.
 
+Each image is also augmented with a horizontal flip (x coords negated) so the
+model handles both right-handed and left-handed signers.
+
 Run from backend/:
     python scripts/extract_landmarks.py
 """
@@ -19,10 +22,15 @@ import mediapipe as mp
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 
-DATASET_DIR   = os.path.join("data", "asl_alphabet_train", "asl_alphabet_train")
-OUTPUT_CSV    = os.path.join("data", "landmarks.csv")
-MODEL_PATH    = os.path.join("models", "hand_landmarker.task")
-IMAGES_PER_LETTER = 500
+SCRIPT_DIR  = os.path.dirname(os.path.abspath(__file__))
+BACKEND_DIR = os.path.dirname(SCRIPT_DIR)
+
+DATASET_DIR = os.path.join(BACKEND_DIR, "data", "asl_alphabet_train", "asl_alphabet_train")
+OUTPUT_CSV  = os.path.join(BACKEND_DIR, "data", "landmarks.csv")
+MODEL_PATH  = os.path.join(BACKEND_DIR, "models", "hand_landmarker.task")
+
+# Use more images per letter; set to None to use all available
+IMAGES_PER_LETTER = 2000
 
 LETTERS = [chr(c) for c in range(ord("A"), ord("Z") + 1)]
 
@@ -48,6 +56,14 @@ def normalize(landmarks):
     return pts.flatten().tolist()
 
 
+def flip_x(features: list) -> list:
+    """Horizontal-flip augmentation: negate x coordinate of each landmark."""
+    flipped = list(features)
+    for i in range(21):
+        flipped[i * 3] = -flipped[i * 3]
+    return flipped
+
+
 def process():
     if not os.path.exists(DATASET_DIR):
         print(f"Dataset not found at {DATASET_DIR}")
@@ -71,7 +87,10 @@ def process():
                 print(f"  SKIP  {letter} - folder missing")
                 continue
 
-            images = sorted(os.listdir(folder))[:IMAGES_PER_LETTER]
+            images = sorted(os.listdir(folder))
+            if IMAGES_PER_LETTER is not None:
+                images = images[:IMAGES_PER_LETTER]
+
             count = 0
 
             for fname in images:
@@ -89,11 +108,18 @@ def process():
                     continue
 
                 features = normalize(result.hand_landmarks[0])
+
+                # Original sample
                 writer.writerow([letter] + features)
                 count += 1
                 total += 1
 
-            print(f"  {letter}  {count} rows extracted")
+                # Augmentation: horizontal flip
+                writer.writerow([letter] + flip_x(features))
+                count += 1
+                total += 1
+
+            print(f"  {letter}  {count} rows ({count // 2} images + {count // 2} flipped)")
 
     print(f"\nDone - {total} rows written to {OUTPUT_CSV}  ({skipped} images skipped)")
 

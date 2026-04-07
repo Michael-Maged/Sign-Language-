@@ -3,41 +3,25 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    marginHorizontal: 4,
+    marginHorizontal: 6,
   },
-  imageContainer: {
-    width: 64,
-    height: 64,
+  card: {
+    width: 110,
+    height: 110,
+    borderRadius: 14,
+    backgroundColor: "#0D1B2A",
     alignItems: "center",
     justifyContent: "center",
-  },
-  image: {
-    width: 64,
-    height: 64,
-  },
-  hidden: {
-    opacity: 0,
-    position: "absolute",
-  },
-  loader: {
-    position: "absolute",
-  },
-  placeholder: {
-    width: 64,
-    height: 64,
-    backgroundColor: "#f0f0f0",
-    borderRadius: 8,
-    alignItems: "center",
-    justifyContent: "center",
+    overflow: "hidden",
   },
   placeholderText: {
-    fontSize: 20,
+    fontSize: 28,
     fontWeight: "bold",
-    color: "#bbb",
+    color: "#94A3B8",
   },
   label: {
     fontSize: 11,
     color: "#666",
-    marginTop: 2,
+    marginTop: 4,
   },
 });

@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp \"c:/Users/Michael Maged/Desktop/Projects/Sign language/Sign-Language-/mobile/assets/signs/\"*.gif \"c:/Users/Michael Maged/Desktop/Projects/Sign language/Sign-Language-/mobile_new/assets/signs/\")"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+openai-whisper
+python-multipart
+mediapipe
+xgboost
+scikit-learn
+pandas
+numpy
+opencv-python
+joblib

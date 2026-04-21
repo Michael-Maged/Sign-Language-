@@ -41,13 +41,30 @@ detector             = _make_detector()
 model, label_encoder = _load_classifier()
 
 
+ANGLE_TRIPLETS = [
+    (1, 2, 3), (2, 3, 4),
+    (5, 6, 7), (6, 7, 8),
+    (9, 10, 11), (10, 11, 12),
+    (13, 14, 15), (14, 15, 16),
+    (17, 18, 19), (18, 19, 20),
+]
+
+
+def _angle(a, b, c):
+    ba = a - b
+    bc = c - b
+    cos = np.dot(ba, bc) / (np.linalg.norm(ba) * np.linalg.norm(bc) + 1e-8)
+    return float(np.arccos(np.clip(cos, -1.0, 1.0)))
+
+
 def normalize(landmarks):
     pts = np.array([[lm.x, lm.y, lm.z] for lm in landmarks])
     pts -= pts[0]
     scale = np.linalg.norm(pts[9])
     if scale > 0:
         pts /= scale
-    return pts.flatten().reshape(1, -1)
+    angles = [_angle(pts[a], pts[b], pts[c]) for a, b, c in ANGLE_TRIPLETS]
+    return np.concatenate([pts.flatten(), angles]).reshape(1, -1)
 
 
 def _decode_image(contents: bytes) -> np.ndarray:
@@ -81,6 +98,9 @@ async def predict_gesture(file: UploadFile):
     result   = detector.detect(mp_image)
 
     if not result.hand_landmarks:
+        # If the classifier knows "nothing", return it; otherwise 422
+        if label_encoder is not None and "nothing" in label_encoder.classes_:
+            return {"letter": "nothing", "confidence": 1.0, "landmarks": []}
         raise HTTPException(status_code=422, detail="No hand detected in image")
 
     raw_lms  = result.hand_landmarks[0]

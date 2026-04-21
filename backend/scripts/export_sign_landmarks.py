@@ -2,7 +2,7 @@
 Export one representative landmark set per ASL letter from landmarks.csv.
 
 Reads:  data/landmarks.csv
-Writes: data/signs/<letter>.json  (one file per letter, A–Z)
+Writes: data/signs/<letter>.json  (one file per letter, A-Z)
 
 Uses the per-letter median across all training samples — more robust than
 picking a single frame.
@@ -29,10 +29,16 @@ def export():
     os.makedirs(SIGNS_DIR, exist_ok=True)
 
     df = pd.read_csv(CSV_PATH)
-    feature_cols = [c for c in df.columns if c != "label"]
+    xyz_cols = [f"{axis}{i}" for i in range(21) for axis in ("x", "y", "z")]
+    # Only use xyz columns for the visual skeleton (angle features are for the classifier)
+    feature_cols = [c for c in xyz_cols if c in df.columns]
 
     for letter, group in df.groupby("label"):
-        median = group[feature_cols].median().values  # shape: (63,)
+        # Every even row is an original sample; odd rows are horizontal-flip
+        # augmentations whose x coords are negated — using all rows makes the
+        # x median collapse to 0.  Use originals only.
+        originals = group.iloc[::2]
+        median = originals[feature_cols].median().values
 
         landmarks = []
         for i in range(21):
@@ -46,7 +52,7 @@ def export():
         with open(out_path, "w") as f:
             json.dump({"letter": letter, "landmarks": landmarks}, f)
 
-        print(f"  {letter}  ({len(group)} samples) → {out_path}")
+        print(f"  {letter}  ({len(originals)} samples) -> {out_path}")
 
     print(f"\nDone — {df['label'].nunique()} files written to {SIGNS_DIR}/")
 

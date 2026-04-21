@@ -42,8 +42,13 @@ def train():
     le = LabelEncoder()
     y_enc = le.fit_transform(y)
 
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y_enc, test_size=0.15, random_state=42, stratify=y_enc
+    # Boost weight for visually similar letters so the model penalises
+    # their confusion more heavily during training
+    HARD_CLASSES = {"C", "D", "O"}
+    sample_weights = np.where(np.isin(y, list(HARD_CLASSES)), 2.0, 1.0)
+
+    X_train, X_test, y_train, y_test, sw_train, _ = train_test_split(
+        X, y_enc, sample_weights, test_size=0.15, random_state=42, stratify=y_enc
     )
 
     print(f"  Train: {len(X_train)}  Test: {len(X_test)}")
@@ -65,6 +70,7 @@ def train():
 
     model.fit(
         X_train, y_train,
+        sample_weight=sw_train,
         eval_set=[(X_test, y_test)],
         verbose=50,
     )

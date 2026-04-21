@@ -32,7 +32,7 @@ MODEL_PATH  = os.path.join(BACKEND_DIR, "models", "hand_landmarker.task")
 # Use more images per letter; set to None to use all available
 IMAGES_PER_LETTER = 2000
 
-LETTERS = [chr(c) for c in range(ord("A"), ord("Z") + 1)]
+LETTERS = [chr(c) for c in range(ord("A"), ord("Z") + 1)] + ["nothing", "space"]
 
 
 def make_detector():
@@ -47,13 +47,33 @@ def make_detector():
     return vision.HandLandmarker.create_from_options(options)
 
 
+# Finger joint triplets for angle features: (base, mid, tip) per joint
+# Covers MCP-PIP-DIP for each of the 4 fingers + thumb IP
+ANGLE_TRIPLETS = [
+    (1, 2, 3), (2, 3, 4),          # thumb
+    (5, 6, 7), (6, 7, 8),          # index
+    (9, 10, 11), (10, 11, 12),     # middle
+    (13, 14, 15), (14, 15, 16),    # ring
+    (17, 18, 19), (18, 19, 20),    # pinky
+]
+
+
+def _angle(a, b, c):
+    """Angle at b formed by vectors b->a and b->c, in radians."""
+    ba = a - b
+    bc = c - b
+    cos = np.dot(ba, bc) / (np.linalg.norm(ba) * np.linalg.norm(bc) + 1e-8)
+    return float(np.arccos(np.clip(cos, -1.0, 1.0)))
+
+
 def normalize(landmarks):
     pts = np.array([[lm.x, lm.y, lm.z] for lm in landmarks])
     pts -= pts[0]
     scale = np.linalg.norm(pts[9])
     if scale > 0:
         pts /= scale
-    return pts.flatten().tolist()
+    angles = [_angle(pts[a], pts[b], pts[c]) for a, b, c in ANGLE_TRIPLETS]
+    return pts.flatten().tolist() + angles
 
 
 def flip_x(features: list) -> list:
@@ -61,6 +81,7 @@ def flip_x(features: list) -> list:
     flipped = list(features)
     for i in range(21):
         flipped[i * 3] = -flipped[i * 3]
+    # angles (last 10 values) are invariant to horizontal flip
     return flipped
 
 
@@ -72,7 +93,8 @@ def process():
         print(f"Model not found at {MODEL_PATH}")
         return
 
-    header = ["label"] + [f"{axis}{i}" for i in range(21) for axis in ("x", "y", "z")]
+    angle_cols = [f"angle_{a}_{b}_{c}" for a, b, c in ANGLE_TRIPLETS]
+    header = ["label"] + [f"{axis}{i}" for i in range(21) for axis in ("x", "y", "z")] + angle_cols
 
     detector = make_detector()
     total, skipped = 0, 0

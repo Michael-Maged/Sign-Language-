@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
-  Animated,
   LayoutChangeEvent,
   ScrollView,
   StyleSheet,
@@ -78,10 +77,7 @@ export default function GestureScreen() {
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const sentenceRef = useRef<ScrollView>(null);
 
-  // Pulse animation
-  const pulseScale   = useRef(new Animated.Value(1)).current;
-  const pulseOpacity = useRef(new Animated.Value(0)).current;
-  const pulseLoop    = useRef<Animated.CompositeAnimation | null>(null);
+
 
   // ── Server check on mount ────────────────────────────────────────────────────
   async function pingServer() {
@@ -108,12 +104,24 @@ export default function GestureScreen() {
       if (!photo) throw new Error("Capture returned null");
       setImgSize({ w: photo.width, h: photo.height });
       const result = await predictGesture(photo.uri);
-      setPrediction(result);
-      setLms(result.landmarks);
+      if (result.letter.toLowerCase() === "nothing") {
+        setPrediction(null);
+        setLms([]);
+      } else {
+        setPrediction(result);
+        setLms(result.landmarks);
+      }
       setScanError("");               // clear error only on success
     } catch (e: any) {
-      setScanError(e.message ?? "Unknown error");
-      // do NOT clear lms — keep last skeleton visible
+      const msg = e.message ?? "Unknown error";
+      // "no hand" is expected — don't treat it as an error
+      if (msg.toLowerCase().includes("no hand")) {
+        setPrediction(null);
+        setLms([]);
+        setScanError("");
+      } else {
+        setScanError(msg);
+      }
     } finally {
       busyRef.current = false;
       setScanning(false);
@@ -133,23 +141,7 @@ export default function GestureScreen() {
     };
   }, [serverStatus, capture]);
 
-  // ── Pulse animation ──────────────────────────────────────────────────────────
-  useEffect(() => {
-    if (scanning) {
-      pulseOpacity.setValue(0.75);
-      pulseLoop.current = Animated.loop(
-        Animated.sequence([
-          Animated.timing(pulseScale, { toValue: 1.35, duration: 650, useNativeDriver: true }),
-          Animated.timing(pulseScale, { toValue: 1,    duration: 650, useNativeDriver: true }),
-        ])
-      );
-      pulseLoop.current.start();
-    } else {
-      pulseLoop.current?.stop();
-      Animated.timing(pulseOpacity, { toValue: 0, duration: 300, useNativeDriver: true }).start();
-      pulseScale.setValue(1);
-    }
-  }, [scanning]);
+
 
   // ── Sentence helpers ─────────────────────────────────────────────────────────
   function addLetter() {
@@ -222,7 +214,7 @@ export default function GestureScreen() {
     prediction.confidence >= 0.8 ? "#4ADE80" :
     prediction.confidence >= 0.6 ? "#FACC15" : "#F87171";
 
-  const canAdd = !!prediction && prediction.confidence >= MIN_CONFIDENCE;
+  const canAdd = !!prediction && prediction.confidence >= MIN_CONFIDENCE && prediction.letter.toLowerCase() !== "nothing";
 
   const badgeLabel = scanning ? "Scanning…" : prediction ? "Hand detected ✓" : "No hand — tap to try";
   const badgeColor = scanning ? "#60A5FA"   : prediction ? "#4ADE80"         : "#F87171";
@@ -282,11 +274,7 @@ export default function GestureScreen() {
           </View>
         )}
 
-        {/* Pulse ring */}
-        <Animated.View
-          style={[styles.pulseRing, { transform: [{ scale: pulseScale }], opacity: pulseOpacity }]}
-          pointerEvents="none"
-        />
+
 
         {/* Top bar: status badge + flip */}
         <View style={styles.topBar} pointerEvents="box-none">

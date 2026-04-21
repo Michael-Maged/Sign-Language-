@@ -50,18 +50,6 @@ export const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
   },
 
-  // Pulsing detection ring — centered via absolute + negative margins
-  pulseRing: {
-    position: "absolute",
-    width: 140,
-    height: 140,
-    borderRadius: 70,
-    borderWidth: 3,
-    borderColor: "#60A5FA",
-    alignSelf: "center",
-    top: "50%" as any,
-    marginTop: -70,
-  },
 
   // Top bar — status badge (left) + flip button (right)
   topBar: {

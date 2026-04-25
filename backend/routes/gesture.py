@@ -97,20 +97,21 @@ async def predict_gesture(file: UploadFile):
     mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb)
     result   = detector.detect(mp_image)
 
-    if not result.hand_landmarks:
+    if not result.hand_world_landmarks:
         # If the classifier knows "nothing", return it; otherwise 422
         if label_encoder is not None and "nothing" in label_encoder.classes_:
             return {"letter": "nothing", "confidence": 1.0, "landmarks": []}
         raise HTTPException(status_code=422, detail="No hand detected in image")
 
-    raw_lms  = result.hand_landmarks[0]
-    features = normalize(raw_lms)
-    probs    = model.predict_proba(features)[0]
-    pred_idx = int(np.argmax(probs))
-    letter   = label_encoder.inverse_transform([pred_idx])[0]
+    world_lms = result.hand_world_landmarks[0]
+    features  = normalize(world_lms)
+    probs     = model.predict_proba(features)[0]
+    pred_idx  = int(np.argmax(probs))
+    letter    = label_encoder.inverse_transform([pred_idx])[0]
     confidence = float(probs[pred_idx])
 
-    # Raw landmark positions (0-1 relative to image) for client-side overlay
-    landmarks = [{"x": round(lm.x, 4), "y": round(lm.y, 4)} for lm in raw_lms]
+    # Image-space landmarks (0-1) for client-side skeleton overlay
+    image_lms = result.hand_landmarks[0]
+    landmarks = [{"x": round(lm.x, 4), "y": round(lm.y, 4)} for lm in image_lms]
 
     return {"letter": letter, "confidence": round(confidence, 4), "landmarks": landmarks}

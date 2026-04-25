@@ -38,7 +38,7 @@ def test_normalize_scale_invariant():
 
 def test_flip_x_negates_x_coords():
     """flip_x() must negate the x coordinate of each of the 21 landmarks."""
-    features = list(range(63)) + [0.5] * 10  # 63 xyz + 10 angles
+    features = [float(i + 1) for i in range(63)] + [0.5] * 10  # 63 xyz + 10 angles
     flipped = flip_x(features)
     for i in range(21):
         assert flipped[i * 3] == -features[i * 3]

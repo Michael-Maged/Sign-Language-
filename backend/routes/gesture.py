@@ -97,7 +97,7 @@ async def predict_gesture(file: UploadFile):
     mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb)
     result   = detector.detect(mp_image)
 
-    if not result.hand_world_landmarks:
+    if not result.hand_world_landmarks or not result.hand_landmarks:
         # If the classifier knows "nothing", return it; otherwise 422
         if label_encoder is not None and "nothing" in label_encoder.classes_:
             return {"letter": "nothing", "confidence": 1.0, "landmarks": []}

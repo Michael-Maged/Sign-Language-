@@ -125,11 +125,11 @@ def process():
                 mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb)
                 result = detector.detect(mp_image)
 
-                if not result.hand_landmarks:
+                if not result.hand_world_landmarks:
                     skipped += 1
                     continue
 
-                features = normalize(result.hand_landmarks[0])
+                features = normalize(result.hand_world_landmarks[0])
 
                 # Original sample
                 writer.writerow([letter] + features)

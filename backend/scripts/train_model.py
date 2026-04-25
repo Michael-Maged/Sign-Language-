@@ -27,7 +27,7 @@ MODEL_PATH   = os.path.join(MODELS_DIR, "gesture_model.pkl")
 ENCODER_PATH = os.path.join(MODELS_DIR, "label_encoder.pkl")
 
 
-def _augment_noise(X, y, n_copies=3, noise_std=0.02):
+def _augment_noise(X, y, n_copies=1, noise_std=0.02):
     """Add Gaussian noise copies to improve robustness to small perturbations."""
     rng = np.random.default_rng(42)
     parts_X = [X]
@@ -60,20 +60,20 @@ def train():
 
     print(f"  Train: {len(X_train)}  Test: {len(X_test)}")
 
-    print("Augmenting training data with Gaussian noise (3 copies, std=0.02)...")
+    print("Augmenting training data with Gaussian noise (1 copy, std=0.02)...")
     X_train_aug, y_train_aug = _augment_noise(X_train, y_train)
     print(f"  Augmented train size: {len(X_train_aug)}")
 
-    print("\nTraining MLP (256→128→64→n_classes)...")
+    print("\nTraining MLP (128->64->n_classes)...")
     model = MLPClassifier(
-        hidden_layer_sizes=(256, 128, 64),
+        hidden_layer_sizes=(128, 64),
         activation="relu",
         solver="adam",
-        max_iter=300,
+        max_iter=100,
         random_state=42,
         early_stopping=True,
         validation_fraction=0.1,
-        n_iter_no_change=20,
+        n_iter_no_change=10,
         verbose=True,
     )
     model.fit(X_train_aug, y_train_aug)

@@ -1,9 +1,13 @@
 """
-WLASL Step 1 — Extract MediaPipe Holistic landmarks from WLASL video files.
+WLASL Step 1 -- Extract MediaPipe hand landmarks from WLASL video files.
+
+Uses HandLandmarker (Tasks API) to extract left + right hand landmarks.
 
 Produces:
-  data/wlasl_landmarks.npy   shape: (N, 30, 225)
+  data/wlasl_landmarks.npy   shape: (N, 30, 126)
   data/wlasl_labels.npy      shape: (N,)  dtype: str
+
+  Features per frame: 21 left-hand landmarks x3 + 21 right-hand landmarks x3 = 126
 
 Set WLASL_DIR to the folder containing WLASL_v0.3.json and videos/.
 
@@ -16,41 +20,57 @@ import json
 import cv2
 import numpy as np
 import mediapipe as mp
+from mediapipe.tasks import python as mp_python
+from mediapipe.tasks.python import vision as mp_vision
 
 SCRIPT_DIR  = os.path.dirname(os.path.abspath(__file__))
 BACKEND_DIR = os.path.dirname(SCRIPT_DIR)
 
 # ── Configure these paths ────────────────────────────────────────────────────
-WLASL_DIR   = os.path.join(BACKEND_DIR, "data", "wlasl_dataset")  # change if needed
-JSON_PATH   = os.path.join(WLASL_DIR, "WLASL_v0.3.json")
-VIDEO_DIR   = os.path.join(WLASL_DIR, "videos")
-OUT_LMS     = os.path.join(BACKEND_DIR, "data", "wlasl_landmarks.npy")
-OUT_LABELS  = os.path.join(BACKEND_DIR, "data", "wlasl_labels.npy")
+WLASL_DIR        = os.path.join(BACKEND_DIR, "data", "wlasl_dataset")  # change if needed
+JSON_PATH        = os.path.join(WLASL_DIR, "WLASL_v0.3.json")
+VIDEO_DIR        = os.path.join(WLASL_DIR, "videos")
+HAND_MODEL_PATH  = os.path.join(BACKEND_DIR, "models", "hand_landmarker.task")
+OUT_LMS          = os.path.join(BACKEND_DIR, "data", "wlasl_landmarks.npy")
+OUT_LABELS       = os.path.join(BACKEND_DIR, "data", "wlasl_labels.npy")
 
 N_WORDS     = 100   # top-N glosses by training instance count
 SEQ_LEN     = 30    # fixed sequence length (frames)
-N_FEATURES  = 225   # 33 pose × 3 + 21 left_hand × 3 + 21 right_hand × 3
+N_FEATURES  = 126   # 21 left_hand x3 + 21 right_hand x3
 
 
-def _extract_frame_features(results) -> np.ndarray:
-    """Flatten Holistic results for one frame into a 225-dim vector."""
-    def _lms_to_array(landmark_list, n):
-        if landmark_list is None:
-            return np.zeros(n * 3, dtype=np.float32)
-        return np.array(
-            [[lm.x, lm.y, lm.z] for lm in landmark_list.landmark],
-            dtype=np.float32
-        ).flatten()
+def _make_detector():
+    options = mp_vision.HandLandmarkerOptions(
+        base_options=mp_python.BaseOptions(model_asset_path=HAND_MODEL_PATH),
+        num_hands=2,
+        min_hand_detection_confidence=0.3,
+        min_hand_presence_confidence=0.3,
+        min_tracking_confidence=0.3,
+        running_mode=mp_vision.RunningMode.IMAGE,
+    )
+    return mp_vision.HandLandmarker.create_from_options(options)
 
-    pose  = _lms_to_array(results.pose_landmarks, 33)       # 99
-    left  = _lms_to_array(results.left_hand_landmarks, 21)  # 63
-    right = _lms_to_array(results.right_hand_landmarks, 21) # 63
-    return np.concatenate([pose, left, right])               # 225
+
+def _extract_frame_features(detection_result) -> np.ndarray:
+    """Flatten HandLandmarker result into a 126-dim vector (left + right hand)."""
+    left  = np.zeros(63, dtype=np.float32)
+    right = np.zeros(63, dtype=np.float32)
+
+    for i, handedness in enumerate(detection_result.handedness):
+        label = handedness[0].category_name.lower()
+        lms = detection_result.hand_landmarks[i]
+        arr = np.array([[lm.x, lm.y, lm.z] for lm in lms], dtype=np.float32).flatten()
+        if label == "left":
+            left = arr
+        else:
+            right = arr
+
+    return np.concatenate([left, right])   # 126
 
 
 def _video_to_sequence(video_path: str, frame_start: int, frame_end: int,
-                        holistic) -> np.ndarray:
-    """Extract a fixed-length (SEQ_LEN, 225) array from a video clip."""
+                        detector) -> np.ndarray:
+    """Extract a (SEQ_LEN, 126) array from a video clip."""
     cap = cv2.VideoCapture(video_path)
     if not cap.isOpened():
         return None
@@ -71,14 +91,14 @@ def _video_to_sequence(video_path: str, frame_start: int, frame_end: int,
     if not frames:
         return None
 
-    # Sample SEQ_LEN frames uniformly from the clip
-    indices = np.linspace(0, len(frames) - 1, SEQ_LEN, dtype=int)
+    indices  = np.linspace(0, len(frames) - 1, SEQ_LEN, dtype=int)
     sequence = np.zeros((SEQ_LEN, N_FEATURES), dtype=np.float32)
 
     for seq_idx, frame_idx in enumerate(indices):
-        rgb = cv2.cvtColor(frames[frame_idx], cv2.COLOR_BGR2RGB)
-        results = holistic.process(rgb)
-        sequence[seq_idx] = _extract_frame_features(results)
+        rgb      = cv2.cvtColor(frames[frame_idx], cv2.COLOR_BGR2RGB)
+        mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb)
+        result   = detector.detect(mp_image)
+        sequence[seq_idx] = _extract_frame_features(result)
 
     return sequence
 
@@ -89,10 +109,13 @@ def process():
         print("Set WLASL_DIR to your dataset folder.")
         return
 
+    if not os.path.exists(HAND_MODEL_PATH):
+        print(f"hand_landmarker.task not found at {HAND_MODEL_PATH}")
+        return
+
     with open(JSON_PATH) as f:
         data = json.load(f)
 
-    # Count training instances per gloss, pick top N_WORDS
     gloss_counts = {}
     for entry in data:
         gloss = entry["gloss"]
@@ -100,21 +123,14 @@ def process():
         gloss_counts[gloss] = train_count
 
     top_glosses = sorted(gloss_counts, key=gloss_counts.get, reverse=True)[:N_WORDS]
-    gloss_set = set(top_glosses)
+    gloss_set   = set(top_glosses)
     print(f"Top {N_WORDS} glosses selected. Least common: '{top_glosses[-1]}' ({gloss_counts[top_glosses[-1]]} train samples)")
 
     all_sequences = []
     all_labels    = []
     skipped       = 0
 
-    mp_holistic = mp.solutions.holistic
-    with mp_holistic.Holistic(
-        static_image_mode=False,
-        model_complexity=1,
-        min_detection_confidence=0.3,
-        min_tracking_confidence=0.3,
-    ) as holistic:
-
+    with _make_detector() as detector:
         for entry in data:
             gloss = entry["gloss"]
             if gloss not in gloss_set:
@@ -133,7 +149,7 @@ def process():
                     skipped += 1
                     continue
 
-                seq = _video_to_sequence(video_path, frame_start, frame_end, holistic)
+                seq = _video_to_sequence(video_path, frame_start, frame_end, detector)
                 if seq is None:
                     skipped += 1
                     continue
@@ -148,8 +164,8 @@ def process():
         print("No sequences extracted. Check WLASL_DIR and video files.")
         return
 
-    X = np.stack(all_sequences)           # (N, 30, 225)
-    y = np.array(all_labels)              # (N,)
+    X = np.stack(all_sequences)
+    y = np.array(all_labels)
 
     os.makedirs(os.path.dirname(OUT_LMS), exist_ok=True)
     np.save(OUT_LMS,    X)

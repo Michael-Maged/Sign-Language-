@@ -27,7 +27,7 @@ MODEL_PATH   = os.path.join(MODELS_DIR, "wlasl_model.keras")
 ENCODER_PATH = os.path.join(MODELS_DIR, "wlasl_encoder.pkl")
 
 SEQ_LEN      = 30
-N_FEATURES   = 225
+N_FEATURES   = 126   # 21 left-hand x3 + 21 right-hand x3
 EPOCHS       = 50
 BATCH_SIZE   = 32
 

@@ -4,18 +4,21 @@ import cv2
 import joblib
 import numpy as np
 import mediapipe as mp
+from mediapipe.tasks import python as mp_python
+from mediapipe.tasks.python import vision as mp_vision
 from PIL import Image as PILImage, ImageOps
 from fastapi import APIRouter, UploadFile, HTTPException
 from typing import List
 
 router = APIRouter()
 
-MODELS_DIR   = "models"
-MODEL_PATH   = os.path.join(MODELS_DIR, "wlasl_model.keras")
-ENCODER_PATH = os.path.join(MODELS_DIR, "wlasl_encoder.pkl")
+MODELS_DIR        = "models"
+MODEL_PATH        = os.path.join(MODELS_DIR, "wlasl_model.keras")
+ENCODER_PATH      = os.path.join(MODELS_DIR, "wlasl_encoder.pkl")
+HAND_MODEL_PATH   = os.path.join(MODELS_DIR, "hand_landmarker.task")
 
-SEQ_LEN     = 30
-N_FEATURES  = 225
+SEQ_LEN    = 30
+N_FEATURES = 126   # 21 left-hand x3 + 21 right-hand x3
 
 
 def _load_wlasl_model():
@@ -27,13 +30,15 @@ def _load_wlasl_model():
 
 wlasl_model, wlasl_encoder = _load_wlasl_model()
 
-_mp_holistic = mp.solutions.holistic
-_holistic = _mp_holistic.Holistic(
-    static_image_mode=True,
-    model_complexity=1,
-    min_detection_confidence=0.3,
+_hand_options = mp_vision.HandLandmarkerOptions(
+    base_options=mp_python.BaseOptions(model_asset_path=HAND_MODEL_PATH),
+    num_hands=2,
+    min_hand_detection_confidence=0.3,
+    min_hand_presence_confidence=0.3,
     min_tracking_confidence=0.3,
+    running_mode=mp_vision.RunningMode.IMAGE,
 )
+_hand_detector = mp_vision.HandLandmarker.create_from_options(_hand_options)
 
 
 def _decode_image(contents: bytes) -> np.ndarray:
@@ -50,21 +55,23 @@ def _decode_image(contents: bytes) -> np.ndarray:
 
 
 def _frame_to_features(rgb: np.ndarray) -> np.ndarray:
-    """Extract 225-dim feature vector from one RGB frame via Holistic."""
-    results = _holistic.process(rgb)
+    """Extract 126-dim feature vector (left + right hand) from one RGB frame."""
+    mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb)
+    result   = _hand_detector.detect(mp_image)
 
-    def _lms(landmark_list, n):
-        if landmark_list is None:
-            return np.zeros(n * 3, dtype=np.float32)
-        return np.array(
-            [[lm.x, lm.y, lm.z] for lm in landmark_list.landmark],
-            dtype=np.float32,
-        ).flatten()
+    left  = np.zeros(63, dtype=np.float32)
+    right = np.zeros(63, dtype=np.float32)
 
-    pose  = _lms(results.pose_landmarks, 33)
-    left  = _lms(results.left_hand_landmarks, 21)
-    right = _lms(results.right_hand_landmarks, 21)
-    return np.concatenate([pose, left, right])
+    for i, handedness in enumerate(result.handedness):
+        label = handedness[0].category_name.lower()
+        lms   = result.hand_landmarks[i]
+        arr   = np.array([[lm.x, lm.y, lm.z] for lm in lms], dtype=np.float32).flatten()
+        if label == "left":
+            left = arr
+        else:
+            right = arr
+
+    return np.concatenate([left, right])
 
 
 def _pad_or_trim(seq: np.ndarray) -> np.ndarray:
@@ -95,11 +102,11 @@ async def predict_word(frames: List[UploadFile]):
         sequence.append(_frame_to_features(rgb))
 
     seq_array = _pad_or_trim(np.array(sequence, dtype=np.float32))
-    inp = seq_array[np.newaxis, ...]   # (1, 30, 225)
+    inp       = seq_array[np.newaxis, ...]   # (1, 30, 126)
 
-    probs    = wlasl_model.predict(inp, verbose=0)[0]
-    pred_idx = int(np.argmax(probs))
-    word     = wlasl_encoder.inverse_transform([pred_idx])[0]
+    probs      = wlasl_model.predict(inp, verbose=0)[0]
+    pred_idx   = int(np.argmax(probs))
+    word       = wlasl_encoder.inverse_transform([pred_idx])[0]
     confidence = float(probs[pred_idx])
 
     return {"word": word, "confidence": round(confidence, 4)}

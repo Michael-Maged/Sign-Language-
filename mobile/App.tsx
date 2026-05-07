@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import HomeScreen from "./src/screens/HomeScreen";
+import HomeScreen    from "./src/screens/HomeScreen";
 import GestureScreen from "./src/screens/GestureScreen";
+import WLASLScreen   from "./src/screens/WLASLScreen";
 
-type Tab = "speech" | "gesture";
+type Tab = "speech" | "gesture" | "wlasl";
 
 export default function App() {
   const [tab, setTab] = useState<Tab>("speech");
@@ -15,11 +16,14 @@ export default function App() {
       <StatusBar style="auto" />
       <View style={styles.root}>
         <View style={styles.content}>
-          {tab === "speech" ? <HomeScreen /> : <GestureScreen />}
+          {tab === "speech"  && <HomeScreen />}
+          {tab === "gesture" && <GestureScreen />}
+          {tab === "wlasl"   && <WLASLScreen />}
         </View>
         <SafeAreaView edges={["bottom"]} style={styles.tabBar}>
           <TabItem icon="🎙" label="Speech"  active={tab === "speech"}  onPress={() => setTab("speech")} />
-          <TabItem icon="✋" label="Camera"  active={tab === "gesture"} onPress={() => setTab("gesture")} />
+          <TabItem icon="✋" label="Letters" active={tab === "gesture"} onPress={() => setTab("gesture")} />
+          <TabItem icon="🤟" label="Words"   active={tab === "wlasl"}   onPress={() => setTab("wlasl")} />
         </SafeAreaView>
       </View>
     </SafeAreaProvider>
@@ -41,43 +45,12 @@ function TabItem({
 }
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
-  content: {
-    flex: 1,
-  },
-  tabBar: {
-    flexDirection: "row",
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: "#D1D5DB",
-    backgroundColor: "#fff",
-  },
-  tabItem: {
-    flex: 1,
-    alignItems: "center",
-    paddingTop: 10,
-    paddingBottom: 6,
-  },
-  tabIndicator: {
-    position: "absolute",
-    top: 0,
-    width: 36,
-    height: 3,
-    borderRadius: 2,
-    backgroundColor: "#2196F3",
-  },
-  tabIcon: {
-    fontSize: 22,
-  },
-  tabLabel: {
-    fontSize: 11,
-    color: "#9CA3AF",
-    marginTop: 2,
-  },
-  tabLabelActive: {
-    color: "#2196F3",
-    fontWeight: "600",
-  },
+  root:           { flex: 1, backgroundColor: "#fff" },
+  content:        { flex: 1 },
+  tabBar:         { flexDirection: "row", borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: "#D1D5DB", backgroundColor: "#fff" },
+  tabItem:        { flex: 1, alignItems: "center", paddingTop: 10, paddingBottom: 6 },
+  tabIndicator:   { position: "absolute", top: 0, width: 36, height: 3, borderRadius: 2, backgroundColor: "#2196F3" },
+  tabIcon:        { fontSize: 22 },
+  tabLabel:       { fontSize: 11, color: "#9CA3AF", marginTop: 2 },
+  tabLabelActive: { color: "#2196F3", fontWeight: "600" },
 });

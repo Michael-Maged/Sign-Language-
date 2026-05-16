@@ -9,16 +9,16 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\main.py",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_main_py",
-      "community": 9,
+      "community": 14,
       "norm_label": "main.py"
     },
     {
       "label": "root()",
       "file_type": "code",
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\main.py",
-      "source_location": "L20",
+      "source_location": "L21",
       "id": "main_root",
-      "community": 9,
+      "community": 14,
       "norm_label": "root()"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\gesture.py",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_routes_gesture_py",
-      "community": 2,
+      "community": 3,
       "norm_label": "gesture.py"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\gesture.py",
       "source_location": "L20",
       "id": "gesture_make_detector",
-      "community": 2,
+      "community": 3,
       "norm_label": "_make_detector()"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\gesture.py",
       "source_location": "L34",
       "id": "gesture_load_classifier",
-      "community": 2,
+      "community": 3,
       "norm_label": "_load_classifier()"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\gesture.py",
       "source_location": "L53",
       "id": "gesture_angle",
-      "community": 2,
+      "community": 3,
       "norm_label": "_angle()"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\gesture.py",
       "source_location": "L60",
       "id": "gesture_normalize",
-      "community": 2,
+      "community": 3,
       "norm_label": "normalize()"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\gesture.py",
       "source_location": "L70",
       "id": "gesture_decode_image",
-      "community": 2,
+      "community": 3,
       "norm_label": "_decode_image()"
     },
     {
@@ -81,7 +81,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\gesture.py",
       "source_location": "L85",
       "id": "gesture_predict_gesture",
-      "community": 2,
+      "community": 3,
       "norm_label": "predict_gesture()"
     },
     {
@@ -89,9 +89,9 @@
       "file_type": "rationale",
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\gesture.py",
       "source_location": "L71",
-      "id": "gesture_rationale_71",
-      "community": 2,
-      "norm_label": "decode image bytes \u2192 rgb numpy array, honouring exif rotation."
+      "community": 3,
+      "norm_label": "decode image bytes \u2192 rgb numpy array, honouring exif rotation.",
+      "id": "gesture_rationale_71"
     },
     {
       "label": "media.py",
@@ -99,7 +99,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\media.py",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_routes_media_py",
-      "community": 5,
+      "community": 10,
       "norm_label": "media.py"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\media.py",
       "source_location": "L13",
       "id": "media_get_sign_landmarks",
-      "community": 5,
+      "community": 10,
       "norm_label": "get_sign_landmarks()"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\media.py",
       "source_location": "L22",
       "id": "media_get_sign",
-      "community": 5,
+      "community": 10,
       "norm_label": "get_sign()"
     },
     {
@@ -126,7 +126,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\sign.py",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_routes_sign_py",
-      "community": 10,
+      "community": 15,
       "norm_label": "sign.py"
     },
     {
@@ -135,7 +135,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\sign.py",
       "source_location": "L6",
       "id": "sign_text_to_sign",
-      "community": 10,
+      "community": 15,
       "norm_label": "text_to_sign()"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\speech.py",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_routes_speech_py",
-      "community": 11,
+      "community": 16,
       "norm_label": "speech.py"
     },
     {
@@ -153,8 +153,89 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\speech.py",
       "source_location": "L10",
       "id": "speech_speech_to_text",
-      "community": 11,
+      "community": 16,
       "norm_label": "speech_to_text()"
+    },
+    {
+      "label": "wlasl.py",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L1",
+      "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_routes_wlasl_py",
+      "community": 2,
+      "norm_label": "wlasl.py"
+    },
+    {
+      "label": "_load_wlasl_model()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L24",
+      "id": "wlasl_load_wlasl_model",
+      "community": 2,
+      "norm_label": "_load_wlasl_model()"
+    },
+    {
+      "label": "_decode_image()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L44",
+      "id": "wlasl_decode_image",
+      "community": 2,
+      "norm_label": "_decode_image()"
+    },
+    {
+      "label": "_frame_to_features()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L57",
+      "id": "wlasl_frame_to_features",
+      "community": 2,
+      "norm_label": "_frame_to_features()"
+    },
+    {
+      "label": "_pad_or_trim()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L77",
+      "id": "wlasl_pad_or_trim",
+      "community": 2,
+      "norm_label": "_pad_or_trim()"
+    },
+    {
+      "label": "predict_word()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L87",
+      "id": "wlasl_predict_word",
+      "community": 2,
+      "norm_label": "predict_word()"
+    },
+    {
+      "label": "Decode image bytes to RGB numpy array, honouring EXIF rotation.",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L45",
+      "id": "wlasl_rationale_45",
+      "community": 2,
+      "norm_label": "decode image bytes to rgb numpy array, honouring exif rotation."
+    },
+    {
+      "label": "Extract 126-dim feature vector (left + right hand) from one RGB frame.",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L58",
+      "id": "wlasl_rationale_58",
+      "community": 2,
+      "norm_label": "extract 126-dim feature vector (left + right hand) from one rgb frame."
+    },
+    {
+      "label": "Return array of shape (SEQ_LEN, N_FEATURES).",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L78",
+      "id": "wlasl_rationale_78",
+      "community": 2,
+      "norm_label": "return array of shape (seq_len, n_features)."
     },
     {
       "label": "export_sign_landmarks.py",
@@ -162,7 +243,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\export_sign_landmarks.py",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_export_sign_landmarks_py",
-      "community": 6,
+      "community": 11,
       "norm_label": "export_sign_landmarks.py"
     },
     {
@@ -171,7 +252,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\export_sign_landmarks.py",
       "source_location": "L24",
       "id": "export_sign_landmarks_export",
-      "community": 6,
+      "community": 11,
       "norm_label": "export()"
     },
     {
@@ -179,9 +260,9 @@
       "file_type": "rationale",
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\export_sign_landmarks.py",
       "source_location": "L1",
-      "id": "export_sign_landmarks_rationale_1",
-      "community": 6,
-      "norm_label": "export one representative landmark set per asl letter from landmarks.csv.  reads"
+      "community": 11,
+      "norm_label": "export one representative landmark set per asl letter from landmarks.csv.  reads",
+      "id": "export_sign_landmarks_rationale_1"
     },
     {
       "label": "extract_landmarks.py",
@@ -189,7 +270,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_landmarks.py",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_extract_landmarks_py",
-      "community": 1,
+      "community": 0,
       "norm_label": "extract_landmarks.py"
     },
     {
@@ -198,7 +279,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_landmarks.py",
       "source_location": "L38",
       "id": "extract_landmarks_make_detector",
-      "community": 1,
+      "community": 0,
       "norm_label": "make_detector()"
     },
     {
@@ -207,7 +288,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_landmarks.py",
       "source_location": "L61",
       "id": "extract_landmarks_angle",
-      "community": 1,
+      "community": 0,
       "norm_label": "_angle()"
     },
     {
@@ -216,7 +297,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_landmarks.py",
       "source_location": "L69",
       "id": "extract_landmarks_normalize",
-      "community": 1,
+      "community": 0,
       "norm_label": "normalize()"
     },
     {
@@ -225,7 +306,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_landmarks.py",
       "source_location": "L79",
       "id": "extract_landmarks_flip_x",
-      "community": 1,
+      "community": 0,
       "norm_label": "flip_x()"
     },
     {
@@ -234,7 +315,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_landmarks.py",
       "source_location": "L88",
       "id": "extract_landmarks_process",
-      "community": 1,
+      "community": 0,
       "norm_label": "process()"
     },
     {
@@ -242,27 +323,99 @@
       "file_type": "rationale",
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_landmarks.py",
       "source_location": "L1",
-      "id": "extract_landmarks_rationale_1",
-      "community": 1,
-      "norm_label": "step 1 - extract mediapipe hand landmarks from asl alphabet dataset images.  pro"
+      "community": 0,
+      "norm_label": "step 1 - extract mediapipe hand landmarks from asl alphabet dataset images.  pro",
+      "id": "extract_landmarks_rationale_1"
     },
     {
       "label": "Angle at b formed by vectors b->a and b->c, in radians.",
       "file_type": "rationale",
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_landmarks.py",
       "source_location": "L62",
-      "id": "extract_landmarks_rationale_62",
-      "community": 1,
-      "norm_label": "angle at b formed by vectors b->a and b->c, in radians."
+      "community": 0,
+      "norm_label": "angle at b formed by vectors b->a and b->c, in radians.",
+      "id": "extract_landmarks_rationale_62"
     },
     {
       "label": "Horizontal-flip augmentation: negate x coordinate of each landmark.",
       "file_type": "rationale",
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_landmarks.py",
       "source_location": "L80",
-      "id": "extract_landmarks_rationale_80",
-      "community": 1,
-      "norm_label": "horizontal-flip augmentation: negate x coordinate of each landmark."
+      "community": 0,
+      "norm_label": "horizontal-flip augmentation: negate x coordinate of each landmark.",
+      "id": "extract_landmarks_rationale_80"
+    },
+    {
+      "label": "extract_wlasl_landmarks.py",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L1",
+      "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_extract_wlasl_landmarks_py",
+      "community": 4,
+      "norm_label": "extract_wlasl_landmarks.py"
+    },
+    {
+      "label": "_make_detector()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L42",
+      "id": "extract_wlasl_landmarks_make_detector",
+      "community": 4,
+      "norm_label": "_make_detector()"
+    },
+    {
+      "label": "_extract_frame_features()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L54",
+      "id": "extract_wlasl_landmarks_extract_frame_features",
+      "community": 4,
+      "norm_label": "_extract_frame_features()"
+    },
+    {
+      "label": "_video_to_sequence()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L71",
+      "id": "extract_wlasl_landmarks_video_to_sequence",
+      "community": 4,
+      "norm_label": "_video_to_sequence()"
+    },
+    {
+      "label": "process()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L106",
+      "id": "extract_wlasl_landmarks_process",
+      "community": 4,
+      "norm_label": "process()"
+    },
+    {
+      "label": "WLASL Step 1 -- Extract MediaPipe hand landmarks from WLASL video files.  Uses H",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L1",
+      "id": "extract_wlasl_landmarks_rationale_1",
+      "community": 4,
+      "norm_label": "wlasl step 1 -- extract mediapipe hand landmarks from wlasl video files.  uses h"
+    },
+    {
+      "label": "Flatten HandLandmarker result into a 126-dim vector (left + right hand).",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L55",
+      "id": "extract_wlasl_landmarks_rationale_55",
+      "community": 4,
+      "norm_label": "flatten handlandmarker result into a 126-dim vector (left + right hand)."
+    },
+    {
+      "label": "Extract a (SEQ_LEN, 126) array from a video clip.",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L73",
+      "id": "extract_wlasl_landmarks_rationale_73",
+      "community": 4,
+      "norm_label": "extract a (seq_len, 126) array from a video clip."
     },
     {
       "label": "organize_alphabet.py",
@@ -270,7 +423,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\organize_alphabet.py",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_organize_alphabet_py",
-      "community": 7,
+      "community": 12,
       "norm_label": "organize_alphabet.py"
     },
     {
@@ -279,7 +432,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\organize_alphabet.py",
       "source_location": "L15",
       "id": "organize_alphabet_main",
-      "community": 7,
+      "community": 12,
       "norm_label": "main()"
     },
     {
@@ -287,9 +440,9 @@
       "file_type": "rationale",
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\organize_alphabet.py",
       "source_location": "L1",
-      "id": "organize_alphabet_rationale_1",
-      "community": 7,
-      "norm_label": "picks one representative image per letter from the asl alphabet dataset and copi"
+      "community": 12,
+      "norm_label": "picks one representative image per letter from the asl alphabet dataset and copi",
+      "id": "organize_alphabet_rationale_1"
     },
     {
       "label": "train_model.py",
@@ -301,10 +454,19 @@
       "norm_label": "train_model.py"
     },
     {
-      "label": "train()",
+      "label": "_augment_noise()",
       "file_type": "code",
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\train_model.py",
       "source_location": "L30",
+      "id": "train_model_augment_noise",
+      "community": 8,
+      "norm_label": "_augment_noise()"
+    },
+    {
+      "label": "train()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\train_model.py",
+      "source_location": "L42",
       "id": "train_model_train",
       "community": 8,
       "norm_label": "train()"
@@ -314,9 +476,216 @@
       "file_type": "rationale",
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\train_model.py",
       "source_location": "L1",
-      "id": "train_model_rationale_1",
       "community": 8,
-      "norm_label": "step 2 \u2014 train xgboost classifier on extracted landmarks.  reads:   data/landmar"
+      "norm_label": "step 2 \u2014 train xgboost classifier on extracted landmarks.  reads:   data/landmar",
+      "id": "train_model_rationale_1"
+    },
+    {
+      "label": "Add Gaussian noise copies to improve robustness to small perturbations.",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\train_model.py",
+      "source_location": "L31",
+      "community": 8,
+      "norm_label": "add gaussian noise copies to improve robustness to small perturbations.",
+      "id": "train_model_rationale_31"
+    },
+    {
+      "label": "train_wlasl_model.py",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\train_wlasl_model.py",
+      "source_location": "L1",
+      "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_train_wlasl_model_py",
+      "community": 13,
+      "norm_label": "train_wlasl_model.py"
+    },
+    {
+      "label": "train()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\train_wlasl_model.py",
+      "source_location": "L35",
+      "id": "train_wlasl_model_train",
+      "community": 13,
+      "norm_label": "train()"
+    },
+    {
+      "label": "WLASL Step 2 -- Train LSTM classifier on extracted landmark sequences.  Reads:",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\train_wlasl_model.py",
+      "source_location": "L1",
+      "id": "train_wlasl_model_rationale_1",
+      "community": 13,
+      "norm_label": "wlasl step 2 -- train lstm classifier on extracted landmark sequences.  reads:"
+    },
+    {
+      "label": "test_landmarks.py",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L1",
+      "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_landmarks_py",
+      "community": 0,
+      "norm_label": "test_landmarks.py"
+    },
+    {
+      "label": "_FakeLandmark",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L9",
+      "id": "test_landmarks_fakelandmark",
+      "community": 0,
+      "norm_label": "_fakelandmark"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L10",
+      "id": "test_landmarks_fakelandmark_init",
+      "community": 0,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": "_make_landmarks()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L14",
+      "id": "test_landmarks_make_landmarks",
+      "community": 0,
+      "norm_label": "_make_landmarks()"
+    },
+    {
+      "label": "test_normalize_wrist_at_origin()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L18",
+      "id": "test_landmarks_test_normalize_wrist_at_origin",
+      "community": 0,
+      "norm_label": "test_normalize_wrist_at_origin()"
+    },
+    {
+      "label": "test_normalize_scale_invariant()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L29",
+      "id": "test_landmarks_test_normalize_scale_invariant",
+      "community": 0,
+      "norm_label": "test_normalize_scale_invariant()"
+    },
+    {
+      "label": "test_flip_x_negates_x_coords()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L39",
+      "id": "test_landmarks_test_flip_x_negates_x_coords",
+      "community": 0,
+      "norm_label": "test_flip_x_negates_x_coords()"
+    },
+    {
+      "label": "test_flip_x_angles_unchanged()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L49",
+      "id": "test_landmarks_test_flip_x_angles_unchanged",
+      "community": 0,
+      "norm_label": "test_flip_x_angles_unchanged()"
+    },
+    {
+      "label": "After normalize(), landmark 0 (wrist) must be at (0,0,0).",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L19",
+      "community": 0,
+      "norm_label": "after normalize(), landmark 0 (wrist) must be at (0,0,0).",
+      "id": "test_landmarks_rationale_19"
+    },
+    {
+      "label": "Scaling all landmarks by a constant must not change normalize() output.",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L30",
+      "community": 0,
+      "norm_label": "scaling all landmarks by a constant must not change normalize() output.",
+      "id": "test_landmarks_rationale_30"
+    },
+    {
+      "label": "flip_x() must negate the x coordinate of each of the 21 landmarks.",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L40",
+      "community": 0,
+      "norm_label": "flip_x() must negate the x coordinate of each of the 21 landmarks.",
+      "id": "test_landmarks_rationale_40"
+    },
+    {
+      "label": "flip_x() must not modify the angle features (last 10 values).",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L50",
+      "community": 0,
+      "norm_label": "flip_x() must not modify the angle features (last 10 values).",
+      "id": "test_landmarks_rationale_50"
+    },
+    {
+      "label": "test_wlasl_utils.py",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_wlasl_utils.py",
+      "source_location": "L1",
+      "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_wlasl_utils_py",
+      "community": 7,
+      "norm_label": "test_wlasl_utils.py"
+    },
+    {
+      "label": "_pad_or_trim()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_wlasl_utils.py",
+      "source_location": "L6",
+      "id": "test_wlasl_utils_pad_or_trim",
+      "community": 7,
+      "norm_label": "_pad_or_trim()"
+    },
+    {
+      "label": "test_trim_long_sequence()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_wlasl_utils.py",
+      "source_location": "L15",
+      "id": "test_wlasl_utils_test_trim_long_sequence",
+      "community": 7,
+      "norm_label": "test_trim_long_sequence()"
+    },
+    {
+      "label": "test_pad_short_sequence()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_wlasl_utils.py",
+      "source_location": "L22",
+      "id": "test_wlasl_utils_test_pad_short_sequence",
+      "community": 7,
+      "norm_label": "test_pad_short_sequence()"
+    },
+    {
+      "label": "test_exact_length_unchanged()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_wlasl_utils.py",
+      "source_location": "L30",
+      "id": "test_wlasl_utils_test_exact_length_unchanged",
+      "community": 7,
+      "norm_label": "test_exact_length_unchanged()"
+    },
+    {
+      "label": "Take first seq_len frames; zero-pad if shorter.",
+      "file_type": "rationale",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_wlasl_utils.py",
+      "source_location": "L7",
+      "id": "test_wlasl_utils_rationale_7",
+      "community": 7,
+      "norm_label": "take first seq_len frames; zero-pad if shorter."
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\__init__.py",
+      "source_location": "L1",
+      "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_init_py",
+      "community": 18,
+      "norm_label": "__init__.py"
     },
     {
       "label": "App.tsx",
@@ -324,7 +693,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\App.tsx",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_app_tsx",
-      "community": 13,
+      "community": 19,
       "norm_label": "app.tsx"
     },
     {
@@ -333,7 +702,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\index.ts",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_index_ts",
-      "community": 14,
+      "community": 20,
       "norm_label": "index.ts"
     },
     {
@@ -342,7 +711,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\config.ts",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_config_ts",
-      "community": 15,
+      "community": 21,
       "norm_label": "config.ts"
     },
     {
@@ -351,7 +720,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\components\\HandSkeletonView.tsx",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_components_handskeletonview_tsx",
-      "community": 12,
+      "community": 17,
       "norm_label": "handskeletonview.tsx"
     },
     {
@@ -360,7 +729,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\components\\HandSkeletonView.tsx",
       "source_location": "L51",
       "id": "handskeletonview_handskeletonview",
-      "community": 12,
+      "community": 17,
       "norm_label": "handskeletonview()"
     },
     {
@@ -369,7 +738,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\components\\LetterCard.styles.ts",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_components_lettercard_styles_ts",
-      "community": 16,
+      "community": 22,
       "norm_label": "lettercard.styles.ts"
     },
     {
@@ -378,7 +747,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\components\\LetterCard.tsx",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_components_lettercard_tsx",
-      "community": 17,
+      "community": 23,
       "norm_label": "lettercard.tsx"
     },
     {
@@ -387,7 +756,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\components\\MicButton.styles.ts",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_components_micbutton_styles_ts",
-      "community": 18,
+      "community": 24,
       "norm_label": "micbutton.styles.ts"
     },
     {
@@ -396,7 +765,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\components\\MicButton.tsx",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_components_micbutton_tsx",
-      "community": 4,
+      "community": 9,
       "norm_label": "micbutton.tsx"
     },
     {
@@ -405,7 +774,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\components\\MicButton.tsx",
       "source_location": "L15",
       "id": "micbutton_handlepress",
-      "community": 4,
+      "community": 9,
       "norm_label": "handlepress()"
     },
     {
@@ -414,7 +783,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\components\\WordRow.styles.ts",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_components_wordrow_styles_ts",
-      "community": 19,
+      "community": 25,
       "norm_label": "wordrow.styles.ts"
     },
     {
@@ -423,7 +792,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\components\\WordRow.tsx",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_components_wordrow_tsx",
-      "community": 20,
+      "community": 26,
       "norm_label": "wordrow.tsx"
     },
     {
@@ -432,7 +801,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\models\\SignModel.ts",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_models_signmodel_ts",
-      "community": 21,
+      "community": 27,
       "norm_label": "signmodel.ts"
     },
     {
@@ -441,7 +810,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\GestureScreen.styles.ts",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_screens_gesturescreen_styles_ts",
-      "community": 22,
+      "community": 28,
       "norm_label": "gesturescreen.styles.ts"
     },
     {
@@ -450,7 +819,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\GestureScreen.tsx",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_screens_gesturescreen_tsx",
-      "community": 0,
+      "community": 1,
       "norm_label": "gesturescreen.tsx"
     },
     {
@@ -459,7 +828,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\GestureScreen.tsx",
       "source_location": "L46",
       "id": "gesturescreen_toscreen",
-      "community": 0,
+      "community": 1,
       "norm_label": "toscreen()"
     },
     {
@@ -468,7 +837,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\GestureScreen.tsx",
       "source_location": "L83",
       "id": "gesturescreen_pingserver",
-      "community": 0,
+      "community": 1,
       "norm_label": "pingserver()"
     },
     {
@@ -477,7 +846,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\GestureScreen.tsx",
       "source_location": "L147",
       "id": "gesturescreen_addletter",
-      "community": 0,
+      "community": 1,
       "norm_label": "addletter()"
     },
     {
@@ -486,7 +855,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\GestureScreen.tsx",
       "source_location": "L155",
       "id": "gesturescreen_deleteletter",
-      "community": 0,
+      "community": 1,
       "norm_label": "deleteletter()"
     },
     {
@@ -495,7 +864,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\GestureScreen.tsx",
       "source_location": "L156",
       "id": "gesturescreen_clearsentence",
-      "community": 0,
+      "community": 1,
       "norm_label": "clearsentence()"
     },
     {
@@ -504,7 +873,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\GestureScreen.tsx",
       "source_location": "L158",
       "id": "gesturescreen_handleflip",
-      "community": 0,
+      "community": 1,
       "norm_label": "handleflip()"
     },
     {
@@ -513,7 +882,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\GestureScreen.tsx",
       "source_location": "L163",
       "id": "gesturescreen_handlelayout",
-      "community": 0,
+      "community": 1,
       "norm_label": "handlelayout()"
     },
     {
@@ -522,7 +891,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\HomeScreen.styles.ts",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_screens_homescreen_styles_ts",
-      "community": 23,
+      "community": 29,
       "norm_label": "homescreen.styles.ts"
     },
     {
@@ -531,7 +900,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\HomeScreen.tsx",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_screens_homescreen_tsx",
-      "community": 3,
+      "community": 5,
       "norm_label": "homescreen.tsx"
     },
     {
@@ -540,7 +909,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\HomeScreen.tsx",
       "source_location": "L15",
       "id": "homescreen_handlespeechresult",
-      "community": 3,
+      "community": 5,
       "norm_label": "handlespeechresult()"
     },
     {
@@ -549,7 +918,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\HomeScreen.tsx",
       "source_location": "L29",
       "id": "homescreen_handleerror",
-      "community": 3,
+      "community": 5,
       "norm_label": "handleerror()"
     },
     {
@@ -558,8 +927,53 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\HomeScreen.tsx",
       "source_location": "L41",
       "id": "homescreen_isloading",
-      "community": 3,
+      "community": 5,
       "norm_label": "isloading()"
+    },
+    {
+      "label": "WLASLScreen.tsx",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\WLASLScreen.tsx",
+      "source_location": "L1",
+      "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_screens_wlaslscreen_tsx",
+      "community": 6,
+      "norm_label": "wlaslscreen.tsx"
+    },
+    {
+      "label": "handleRecord()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\WLASLScreen.tsx",
+      "source_location": "L25",
+      "id": "wlaslscreen_handlerecord",
+      "community": 6,
+      "norm_label": "handlerecord()"
+    },
+    {
+      "label": "addWord()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\WLASLScreen.tsx",
+      "source_location": "L53",
+      "id": "wlaslscreen_addword",
+      "community": 6,
+      "norm_label": "addword()"
+    },
+    {
+      "label": "deleteWord()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\WLASLScreen.tsx",
+      "source_location": "L62",
+      "id": "wlaslscreen_deleteword",
+      "community": 6,
+      "norm_label": "deleteword()"
+    },
+    {
+      "label": "clearSentence()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\WLASLScreen.tsx",
+      "source_location": "L63",
+      "id": "wlaslscreen_clearsentence",
+      "community": 6,
+      "norm_label": "clearsentence()"
     },
     {
       "label": "ApiService.ts",
@@ -567,7 +981,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\services\\ApiService.ts",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_services_apiservice_ts",
-      "community": 3,
+      "community": 5,
       "norm_label": "apiservice.ts"
     },
     {
@@ -576,7 +990,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\services\\ApiService.ts",
       "source_location": "L4",
       "id": "apiservice_texttosign",
-      "community": 3,
+      "community": 5,
       "norm_label": "texttosign()"
     },
     {
@@ -585,7 +999,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\services\\ApiService.ts",
       "source_location": "L13",
       "id": "apiservice_fetchsignlandmarks",
-      "community": 3,
+      "community": 5,
       "norm_label": "fetchsignlandmarks()"
     },
     {
@@ -594,7 +1008,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\services\\AudioService.ts",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_services_audioservice_ts",
-      "community": 4,
+      "community": 9,
       "norm_label": "audioservice.ts"
     },
     {
@@ -603,7 +1017,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\services\\AudioService.ts",
       "source_location": "L6",
       "id": "audioservice_startrecording",
-      "community": 4,
+      "community": 9,
       "norm_label": "startrecording()"
     },
     {
@@ -612,7 +1026,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\services\\AudioService.ts",
       "source_location": "L19",
       "id": "audioservice_stoprecordingandtranscribe",
-      "community": 4,
+      "community": 9,
       "norm_label": "stoprecordingandtranscribe()"
     },
     {
@@ -621,7 +1035,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\services\\GestureService.ts",
       "source_location": "L1",
       "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_services_gestureservice_ts",
-      "community": 0,
+      "community": 1,
       "norm_label": "gestureservice.ts"
     },
     {
@@ -630,7 +1044,7 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\services\\GestureService.ts",
       "source_location": "L14",
       "id": "gestureservice_checkserver",
-      "community": 0,
+      "community": 1,
       "norm_label": "checkserver()"
     },
     {
@@ -639,8 +1053,26 @@
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\services\\GestureService.ts",
       "source_location": "L25",
       "id": "gestureservice_predictgesture",
-      "community": 0,
+      "community": 1,
       "norm_label": "predictgesture()"
+    },
+    {
+      "label": "WLASLService.ts",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\services\\WLASLService.ts",
+      "source_location": "L1",
+      "id": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_services_wlaslservice_ts",
+      "community": 6,
+      "norm_label": "wlaslservice.ts"
+    },
+    {
+      "label": "predictWord()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\services\\WLASLService.ts",
+      "source_location": "L8",
+      "id": "wlaslservice_predictword",
+      "community": 6,
+      "norm_label": "predictword()"
     }
   ],
   "links": [
@@ -648,7 +1080,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\main.py",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0,
       "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_main_py",
       "_tgt": "main_root",
@@ -827,6 +1259,138 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_routes_wlasl_py",
+      "_tgt": "wlasl_load_wlasl_model",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_routes_wlasl_py",
+      "target": "wlasl_load_wlasl_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_routes_wlasl_py",
+      "_tgt": "wlasl_decode_image",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_routes_wlasl_py",
+      "target": "wlasl_decode_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_routes_wlasl_py",
+      "_tgt": "wlasl_frame_to_features",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_routes_wlasl_py",
+      "target": "wlasl_frame_to_features",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_routes_wlasl_py",
+      "_tgt": "wlasl_pad_or_trim",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_routes_wlasl_py",
+      "target": "wlasl_pad_or_trim",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L87",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_routes_wlasl_py",
+      "_tgt": "wlasl_predict_word",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_routes_wlasl_py",
+      "target": "wlasl_predict_word",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L98",
+      "weight": 1.0,
+      "_src": "wlasl_predict_word",
+      "_tgt": "wlasl_decode_image",
+      "source": "wlasl_decode_image",
+      "target": "wlasl_predict_word",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_src": "wlasl_rationale_45",
+      "_tgt": "wlasl_decode_image",
+      "source": "wlasl_decode_image",
+      "target": "wlasl_rationale_45",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L102",
+      "weight": 1.0,
+      "_src": "wlasl_predict_word",
+      "_tgt": "wlasl_frame_to_features",
+      "source": "wlasl_frame_to_features",
+      "target": "wlasl_predict_word",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "_src": "wlasl_rationale_58",
+      "_tgt": "wlasl_frame_to_features",
+      "source": "wlasl_frame_to_features",
+      "target": "wlasl_rationale_58",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L104",
+      "weight": 1.0,
+      "_src": "wlasl_predict_word",
+      "_tgt": "wlasl_pad_or_trim",
+      "source": "wlasl_pad_or_trim",
+      "target": "wlasl_predict_word",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\routes\\wlasl.py",
+      "source_location": "L78",
+      "weight": 1.0,
+      "_src": "wlasl_rationale_78",
+      "_tgt": "wlasl_pad_or_trim",
+      "source": "wlasl_pad_or_trim",
+      "target": "wlasl_rationale_78",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\export_sign_landmarks.py",
       "source_location": "L24",
       "weight": 1.0,
@@ -970,6 +1534,30 @@
     },
     {
       "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_src": "extract_landmarks_normalize",
+      "_tgt": "test_landmarks_test_normalize_wrist_at_origin",
+      "source": "extract_landmarks_normalize",
+      "target": "test_landmarks_test_normalize_wrist_at_origin"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_src": "extract_landmarks_normalize",
+      "_tgt": "test_landmarks_test_normalize_scale_invariant",
+      "source": "extract_landmarks_normalize",
+      "target": "test_landmarks_test_normalize_scale_invariant"
+    },
+    {
+      "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_landmarks.py",
       "source_location": "L140",
@@ -990,6 +1578,150 @@
       "_tgt": "extract_landmarks_flip_x",
       "source": "extract_landmarks_flip_x",
       "target": "extract_landmarks_rationale_80",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_src": "extract_landmarks_flip_x",
+      "_tgt": "test_landmarks_test_flip_x_negates_x_coords",
+      "source": "extract_landmarks_flip_x",
+      "target": "test_landmarks_test_flip_x_negates_x_coords"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_src": "extract_landmarks_flip_x",
+      "_tgt": "test_landmarks_test_flip_x_angles_unchanged",
+      "source": "extract_landmarks_flip_x",
+      "target": "test_landmarks_test_flip_x_angles_unchanged"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_extract_wlasl_landmarks_py",
+      "_tgt": "extract_wlasl_landmarks_make_detector",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_extract_wlasl_landmarks_py",
+      "target": "extract_wlasl_landmarks_make_detector",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_extract_wlasl_landmarks_py",
+      "_tgt": "extract_wlasl_landmarks_extract_frame_features",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_extract_wlasl_landmarks_py",
+      "target": "extract_wlasl_landmarks_extract_frame_features",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_extract_wlasl_landmarks_py",
+      "_tgt": "extract_wlasl_landmarks_video_to_sequence",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_extract_wlasl_landmarks_py",
+      "target": "extract_wlasl_landmarks_video_to_sequence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_extract_wlasl_landmarks_py",
+      "_tgt": "extract_wlasl_landmarks_process",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_extract_wlasl_landmarks_py",
+      "target": "extract_wlasl_landmarks_process",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_src": "extract_wlasl_landmarks_rationale_1",
+      "_tgt": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_extract_wlasl_landmarks_py",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_extract_wlasl_landmarks_py",
+      "target": "extract_wlasl_landmarks_rationale_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L133",
+      "weight": 1.0,
+      "_src": "extract_wlasl_landmarks_process",
+      "_tgt": "extract_wlasl_landmarks_make_detector",
+      "source": "extract_wlasl_landmarks_make_detector",
+      "target": "extract_wlasl_landmarks_process",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L101",
+      "weight": 1.0,
+      "_src": "extract_wlasl_landmarks_video_to_sequence",
+      "_tgt": "extract_wlasl_landmarks_extract_frame_features",
+      "source": "extract_wlasl_landmarks_extract_frame_features",
+      "target": "extract_wlasl_landmarks_video_to_sequence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "_src": "extract_wlasl_landmarks_rationale_55",
+      "_tgt": "extract_wlasl_landmarks_extract_frame_features",
+      "source": "extract_wlasl_landmarks_extract_frame_features",
+      "target": "extract_wlasl_landmarks_rationale_55",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L152",
+      "weight": 1.0,
+      "_src": "extract_wlasl_landmarks_process",
+      "_tgt": "extract_wlasl_landmarks_video_to_sequence",
+      "source": "extract_wlasl_landmarks_video_to_sequence",
+      "target": "extract_wlasl_landmarks_process",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\extract_wlasl_landmarks.py",
+      "source_location": "L73",
+      "weight": 1.0,
+      "_src": "extract_wlasl_landmarks_rationale_73",
+      "_tgt": "extract_wlasl_landmarks_video_to_sequence",
+      "source": "extract_wlasl_landmarks_video_to_sequence",
+      "target": "extract_wlasl_landmarks_rationale_73",
       "confidence_score": 1.0
     },
     {
@@ -1023,6 +1755,18 @@
       "source_location": "L30",
       "weight": 1.0,
       "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_train_model_py",
+      "_tgt": "train_model_augment_noise",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_train_model_py",
+      "target": "train_model_augment_noise",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\train_model.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_train_model_py",
       "_tgt": "train_model_train",
       "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_train_model_py",
       "target": "train_model_train",
@@ -1038,6 +1782,318 @@
       "_tgt": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_train_model_py",
       "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_train_model_py",
       "target": "train_model_rationale_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\train_model.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_src": "train_model_train",
+      "_tgt": "train_model_augment_noise",
+      "source": "train_model_augment_noise",
+      "target": "train_model_train",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\train_model.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_src": "train_model_rationale_31",
+      "_tgt": "train_model_augment_noise",
+      "source": "train_model_augment_noise",
+      "target": "train_model_rationale_31",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\train_wlasl_model.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_train_wlasl_model_py",
+      "_tgt": "train_wlasl_model_train",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_train_wlasl_model_py",
+      "target": "train_wlasl_model_train",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\scripts\\train_wlasl_model.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_src": "train_wlasl_model_rationale_1",
+      "_tgt": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_train_wlasl_model_py",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_scripts_train_wlasl_model_py",
+      "target": "train_wlasl_model_rationale_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_landmarks_py",
+      "_tgt": "test_landmarks_fakelandmark",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_landmarks_py",
+      "target": "test_landmarks_fakelandmark",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_landmarks_py",
+      "_tgt": "test_landmarks_make_landmarks",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_landmarks_py",
+      "target": "test_landmarks_make_landmarks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_landmarks_py",
+      "_tgt": "test_landmarks_test_normalize_wrist_at_origin",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_landmarks_py",
+      "target": "test_landmarks_test_normalize_wrist_at_origin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_landmarks_py",
+      "_tgt": "test_landmarks_test_normalize_scale_invariant",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_landmarks_py",
+      "target": "test_landmarks_test_normalize_scale_invariant",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_landmarks_py",
+      "_tgt": "test_landmarks_test_flip_x_negates_x_coords",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_landmarks_py",
+      "target": "test_landmarks_test_flip_x_negates_x_coords",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_landmarks_py",
+      "_tgt": "test_landmarks_test_flip_x_angles_unchanged",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_landmarks_py",
+      "target": "test_landmarks_test_flip_x_angles_unchanged",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_src": "test_landmarks_fakelandmark",
+      "_tgt": "test_landmarks_fakelandmark_init",
+      "source": "test_landmarks_fakelandmark",
+      "target": "test_landmarks_fakelandmark_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_src": "test_landmarks_make_landmarks",
+      "_tgt": "test_landmarks_fakelandmark",
+      "source": "test_landmarks_fakelandmark",
+      "target": "test_landmarks_make_landmarks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_src": "test_landmarks_test_normalize_wrist_at_origin",
+      "_tgt": "test_landmarks_make_landmarks",
+      "source": "test_landmarks_make_landmarks",
+      "target": "test_landmarks_test_normalize_wrist_at_origin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_src": "test_landmarks_test_normalize_scale_invariant",
+      "_tgt": "test_landmarks_make_landmarks",
+      "source": "test_landmarks_make_landmarks",
+      "target": "test_landmarks_test_normalize_scale_invariant",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_src": "test_landmarks_rationale_19",
+      "_tgt": "test_landmarks_test_normalize_wrist_at_origin",
+      "source": "test_landmarks_test_normalize_wrist_at_origin",
+      "target": "test_landmarks_rationale_19",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_src": "test_landmarks_rationale_30",
+      "_tgt": "test_landmarks_test_normalize_scale_invariant",
+      "source": "test_landmarks_test_normalize_scale_invariant",
+      "target": "test_landmarks_rationale_30",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_src": "test_landmarks_rationale_40",
+      "_tgt": "test_landmarks_test_flip_x_negates_x_coords",
+      "source": "test_landmarks_test_flip_x_negates_x_coords",
+      "target": "test_landmarks_rationale_40",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_landmarks.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_src": "test_landmarks_rationale_50",
+      "_tgt": "test_landmarks_test_flip_x_angles_unchanged",
+      "source": "test_landmarks_test_flip_x_angles_unchanged",
+      "target": "test_landmarks_rationale_50",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_wlasl_utils.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_wlasl_utils_py",
+      "_tgt": "test_wlasl_utils_pad_or_trim",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_wlasl_utils_py",
+      "target": "test_wlasl_utils_pad_or_trim",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_wlasl_utils.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_wlasl_utils_py",
+      "_tgt": "test_wlasl_utils_test_trim_long_sequence",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_wlasl_utils_py",
+      "target": "test_wlasl_utils_test_trim_long_sequence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_wlasl_utils.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_wlasl_utils_py",
+      "_tgt": "test_wlasl_utils_test_pad_short_sequence",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_wlasl_utils_py",
+      "target": "test_wlasl_utils_test_pad_short_sequence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_wlasl_utils.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_wlasl_utils_py",
+      "_tgt": "test_wlasl_utils_test_exact_length_unchanged",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_backend_tests_test_wlasl_utils_py",
+      "target": "test_wlasl_utils_test_exact_length_unchanged",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_wlasl_utils.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_src": "test_wlasl_utils_test_trim_long_sequence",
+      "_tgt": "test_wlasl_utils_pad_or_trim",
+      "source": "test_wlasl_utils_pad_or_trim",
+      "target": "test_wlasl_utils_test_trim_long_sequence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_wlasl_utils.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_src": "test_wlasl_utils_test_pad_short_sequence",
+      "_tgt": "test_wlasl_utils_pad_or_trim",
+      "source": "test_wlasl_utils_pad_or_trim",
+      "target": "test_wlasl_utils_test_pad_short_sequence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_wlasl_utils.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_src": "test_wlasl_utils_test_exact_length_unchanged",
+      "_tgt": "test_wlasl_utils_pad_or_trim",
+      "source": "test_wlasl_utils_pad_or_trim",
+      "target": "test_wlasl_utils_test_exact_length_unchanged",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\backend\\tests\\test_wlasl_utils.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_src": "test_wlasl_utils_rationale_7",
+      "_tgt": "test_wlasl_utils_pad_or_trim",
+      "source": "test_wlasl_utils_pad_or_trim",
+      "target": "test_wlasl_utils_rationale_7",
       "confidence_score": 1.0
     },
     {
@@ -1235,6 +2291,66 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\WLASLScreen.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_screens_wlaslscreen_tsx",
+      "_tgt": "wlaslscreen_handlerecord",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_screens_wlaslscreen_tsx",
+      "target": "wlaslscreen_handlerecord",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\WLASLScreen.tsx",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_screens_wlaslscreen_tsx",
+      "_tgt": "wlaslscreen_addword",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_screens_wlaslscreen_tsx",
+      "target": "wlaslscreen_addword",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\WLASLScreen.tsx",
+      "source_location": "L62",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_screens_wlaslscreen_tsx",
+      "_tgt": "wlaslscreen_deleteword",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_screens_wlaslscreen_tsx",
+      "target": "wlaslscreen_deleteword",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\WLASLScreen.tsx",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_screens_wlaslscreen_tsx",
+      "_tgt": "wlaslscreen_clearsentence",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_screens_wlaslscreen_tsx",
+      "target": "wlaslscreen_clearsentence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\screens\\WLASLScreen.tsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_src": "wlaslscreen_handlerecord",
+      "_tgt": "wlaslservice_predictword",
+      "source": "wlaslscreen_handlerecord",
+      "target": "wlaslservice_predictword"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\services\\ApiService.ts",
       "source_location": "L4",
       "weight": 1.0,
@@ -1302,6 +2418,18 @@
       "_tgt": "gestureservice_predictgesture",
       "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_services_gestureservice_ts",
       "target": "gestureservice_predictgesture",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\Michael Maged\\Desktop\\Projects\\Sign language\\Sign-Language-\\mobile\\src\\services\\WLASLService.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_src": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_services_wlaslservice_ts",
+      "_tgt": "wlaslservice_predictword",
+      "source": "c_users_michael_maged_desktop_projects_sign_language_sign_language_mobile_src_services_wlaslservice_ts",
+      "target": "wlaslservice_predictword",
       "confidence_score": 1.0
     }
   ],

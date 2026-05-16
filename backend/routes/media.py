@@ -5,7 +5,7 @@ import json
 
 router = APIRouter()
 
-SIGNS_DIR = "data/signs"
+SIGNS_DIR = "data/letters/signs"
 EXTENSIONS = [".jpg", ".jpeg", ".png", ".gif"]
 
 

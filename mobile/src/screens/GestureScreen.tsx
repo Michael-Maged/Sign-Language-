@@ -8,13 +8,14 @@ import {
   View,
 } from "react-native";
 import { CameraView, useCameraPermissions } from "expo-camera";
-import Svg, { Circle, Line } from "react-native-svg";
+import Svg, { Circle, Line, Path } from "react-native-svg";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { BASE_URL } from "../config";
 import { GesturePrediction, RawLandmark, predictGesture, checkServer } from "../services/GestureService";
 import { styles } from "./GestureScreen.styles";
+import { P } from "../theme";
 
-// ── Hand skeleton ──────────────────────────────────────────────────────────────
+// ── Hand skeleton ───────────────────────────────────────────────────────────
 const BONES: [number, number][] = [
   [0,1],[1,2],[2,3],[3,4],
   [0,5],[5,6],[6,7],[7,8],
@@ -52,16 +53,14 @@ function toScreen(lm: RawLandmark, cw: number, ch: number, iw: number, ih: numbe
   };
 }
 
-// ── Component ──────────────────────────────────────────────────────────────────
+// ── Component ───────────────────────────────────────────────────────────────
 export default function GestureScreen() {
   const [permission, requestPermission] = useCameraPermissions();
   const [facing, setFacing]             = useState<"front" | "back">("back");
 
-  // Server connection state
   const [serverStatus, setServerStatus] = useState<"checking" | "ok" | "unreachable">("checking");
   const [serverError, setServerError]   = useState("");
 
-  // Scan state
   const [scanning, setScanning]         = useState(false);
   const [prediction, setPrediction]     = useState<GesturePrediction | null>(null);
   const [scanError, setScanError]       = useState("");
@@ -69,17 +68,16 @@ export default function GestureScreen() {
   const [container, setContainer]       = useState({ w: 0, h: 0 });
   const [imgSize, setImgSize]           = useState({ w: 0, h: 0 });
 
-  // Sentence
   const [sentence, setSentence]         = useState<string[]>([]);
 
-  const cameraRef   = useRef<CameraView>(null);
-  const busyRef     = useRef(false);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const sentenceRef = useRef<ScrollView>(null);
+  const cameraRef    = useRef<CameraView>(null);
+  const busyRef      = useRef(false);
+  const intervalRef  = useRef<ReturnType<typeof setInterval> | null>(null);
+  const sentenceRef  = useRef<ScrollView>(null);
+  // Temporal smoothing: require the same letter in 2 of the last 3 frames
+  const recentRef    = useRef<string[]>([]);
 
-
-
-  // ── Server check on mount ────────────────────────────────────────────────────
+  // ── Server check ─────────────────────────────────────────────────────────
   async function pingServer() {
     setServerStatus("checking");
     setServerError("");
@@ -94,7 +92,7 @@ export default function GestureScreen() {
 
   useEffect(() => { pingServer(); }, []);
 
-  // ── Auto-scan loop (only when server is ok) ──────────────────────────────────
+  // ── Auto-scan loop ────────────────────────────────────────────────────────
   const capture = useCallback(async () => {
     if (busyRef.current || !cameraRef.current) return;
     busyRef.current = true;
@@ -104,17 +102,31 @@ export default function GestureScreen() {
       if (!photo) throw new Error("Capture returned null");
       setImgSize({ w: photo.width, h: photo.height });
       const result = await predictGesture(photo.uri);
-      if (result.letter.toLowerCase() === "nothing") {
+      const letter = result.letter.toLowerCase();
+
+      if (letter === "nothing") {
+        recentRef.current = [];
         setPrediction(null);
         setLms([]);
       } else {
-        setPrediction(result);
-        setLms(result.landmarks);
+        // Temporal smoothing: keep last 3 results; commit only when ≥2 agree
+        const recent = [...recentRef.current.slice(-2), result.letter];
+        recentRef.current = recent;
+        const counts: Record<string, number> = {};
+        recent.forEach((l) => { counts[l] = (counts[l] ?? 0) + 1; });
+        const stable = Object.entries(counts).find(([, n]) => n >= 2)?.[0];
+        if (stable && stable === result.letter) {
+          setPrediction(result);
+          setLms(result.landmarks);
+        }
+        // Always update skeleton even while unstable (visual feedback)
+        else {
+          setLms(result.landmarks);
+        }
       }
-      setScanError("");               // clear error only on success
+      setScanError("");
     } catch (e: any) {
       const msg = e.message ?? "Unknown error";
-      // "no hand" is expected — don't treat it as an error
       if (msg.toLowerCase().includes("no hand")) {
         setPrediction(null);
         setLms([]);
@@ -130,9 +142,8 @@ export default function GestureScreen() {
 
   useEffect(() => {
     if (serverStatus !== "ok") return;
-    // Short delay so camera has time to initialise
     const start = setTimeout(() => {
-      capture();                      // immediate first scan
+      capture();
       intervalRef.current = setInterval(capture, AUTO_INTERVAL_MS);
     }, 800);
     return () => {
@@ -141,9 +152,7 @@ export default function GestureScreen() {
     };
   }, [serverStatus, capture]);
 
-
-
-  // ── Sentence helpers ─────────────────────────────────────────────────────────
+  // ── Sentence helpers ──────────────────────────────────────────────────────
   function addLetter() {
     if (!prediction || prediction.confidence < MIN_CONFIDENCE) return;
     setSentence((prev) => {
@@ -159,13 +168,14 @@ export default function GestureScreen() {
     setFacing((f) => (f === "back" ? "front" : "back"));
     setPrediction(null);
     setScanError("");
+    recentRef.current = [];
   }
   function handleLayout(e: LayoutChangeEvent) {
     const { width, height } = e.nativeEvent.layout;
     setContainer({ w: width, h: height });
   }
 
-  // ── Permission gate ──────────────────────────────────────────────────────────
+  // ── Permission gate ───────────────────────────────────────────────────────
   if (!permission) return <View style={styles.container} />;
   if (!permission.granted) {
     return (
@@ -178,12 +188,13 @@ export default function GestureScreen() {
     );
   }
 
-  // ── Server unreachable — show full-screen error ───────────────────────────────
+  // ── Server states ─────────────────────────────────────────────────────────
   if (serverStatus === "checking") {
     return (
       <View style={styles.serverCheckContainer}>
-        <Text style={styles.serverCheckIcon}>🔌</Text>
-        <Text style={styles.serverCheckTitle}>Connecting to backend…</Text>
+        <Text style={[styles.serverCheckTitle, { color: P.textMute, fontSize: 15, marginBottom: 16 }]}>
+          Connecting to backend…
+        </Text>
         <Text style={styles.serverCheckUrl}>{BASE_URL}</Text>
       </View>
     );
@@ -192,13 +203,29 @@ export default function GestureScreen() {
   if (serverStatus === "unreachable") {
     return (
       <View style={styles.serverCheckContainer}>
-        <Text style={styles.serverCheckIcon}>❌</Text>
+        <View style={{
+          width: 64, height: 64, borderRadius: 32,
+          backgroundColor: "rgba(255,107,122,0.12)",
+          alignItems: "center", justifyContent: "center",
+          marginBottom: 20,
+        }}>
+          <Svg width={32} height={32} viewBox="0 0 24 24" fill="none"
+            stroke={P.danger} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+            <Path d="M1 6c3.5-3.5 8.5-4.5 13-3M5 10c2-2 5-3.5 8.5-3M9 14c.67-.67 1.67-1 2.5-1" />
+            <Path d="m2 2 20 20" />
+            <Path d="M14.5 14.5 17 17" />
+          </Svg>
+        </View>
         <Text style={styles.serverCheckTitle}>Cannot reach backend</Text>
         <Text style={styles.serverCheckUrl}>{BASE_URL}</Text>
-        <Text style={styles.serverCheckHint}>
-          {`Make sure:\n• The backend is running (uvicorn main:app)\n• Your phone and PC are on the same Wi-Fi\n• The IP in config.ts matches your PC's IP (run ipconfig)`}
-        </Text>
-        <Text style={styles.serverCheckDetail}>{serverError}</Text>
+        <View style={styles.serverCheckHint}>
+          <Text style={{ color: P.textDim, fontSize: 13, lineHeight: 22 }}>
+            {"• Backend running?  uvicorn main:app\n• Phone + PC on same Wi-Fi?\n• IP in config.ts matches ipconfig?"}
+          </Text>
+        </View>
+        {!!serverError && (
+          <Text style={styles.serverCheckDetail}>{serverError}</Text>
+        )}
         <TouchableOpacity style={styles.retryButton} onPress={pingServer}>
           <Text style={styles.retryButtonText}>Retry</Text>
         </TouchableOpacity>
@@ -206,43 +233,30 @@ export default function GestureScreen() {
     );
   }
 
-  // ── Derived ──────────────────────────────────────────────────────────────────
-  const pts = lms.map((lm) => toScreen(lm, container.w, container.h, imgSize.w, imgSize.h));
+  // ── Derived ───────────────────────────────────────────────────────────────
+  const pts = lms.map((lm) =>
+    toScreen(
+      facing === "front" ? { x: 1 - lm.x, y: lm.y } : lm,
+      container.w, container.h, imgSize.w, imgSize.h,
+    )
+  );
 
   const confColor =
-    !prediction                  ? "#94A3B8" :
-    prediction.confidence >= 0.8 ? "#4ADE80" :
-    prediction.confidence >= 0.6 ? "#FACC15" : "#F87171";
+    !prediction                  ? P.textMute :
+    prediction.confidence >= 0.8 ? P.ok :
+    prediction.confidence >= 0.6 ? P.warn : P.danger;
 
-  const canAdd = !!prediction && prediction.confidence >= MIN_CONFIDENCE && prediction.letter.toLowerCase() !== "nothing";
+  const canAdd = !!prediction && prediction.confidence >= MIN_CONFIDENCE
+    && prediction.letter.toLowerCase() !== "nothing";
 
-  const badgeLabel = scanning ? "Scanning…" : prediction ? "Hand detected ✓" : "No hand — tap to try";
-  const badgeColor = scanning ? "#60A5FA"   : prediction ? "#4ADE80"         : "#F87171";
+  const badgeLabel = scanning ? "Scanning…" : prediction ? "Hand detected" : "No hand";
+  const badgeColor = scanning ? "#60A5FA"   : prediction ? P.ok           : P.danger;
 
-  // ── Render ───────────────────────────────────────────────────────────────────
+  // ── Render ────────────────────────────────────────────────────────────────
   return (
     <View style={styles.container}>
 
-      {/* Sentence strip */}
-      <SafeAreaView edges={["top"]} style={styles.sentenceBar}>
-        <ScrollView
-          ref={sentenceRef}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.sentenceScroll}
-        >
-          {sentence.length === 0
-            ? <Text style={styles.sentencePlaceholder}>Sign a letter → tap Add ✓</Text>
-            : sentence.map((l, i) => (
-                <View key={i} style={styles.letterChip}>
-                  <Text style={styles.letterChipText}>{l}</Text>
-                </View>
-              ))
-          }
-        </ScrollView>
-      </SafeAreaView>
-
-      {/* Camera area — tap to scan immediately */}
+      {/* Camera + skeleton */}
       <TouchableOpacity
         activeOpacity={1}
         style={styles.cameraContainer}
@@ -255,7 +269,6 @@ export default function GestureScreen() {
           facing={facing}
         />
 
-        {/* Skeleton overlay */}
         {pts.length === 21 && container.w > 0 && (
           <View style={styles.svgWrapper} pointerEvents="none">
             <Svg width={container.w} height={container.h}>
@@ -274,25 +287,49 @@ export default function GestureScreen() {
           </View>
         )}
 
-
-
-        {/* Top bar: status badge + flip */}
-        <View style={styles.topBar} pointerEvents="box-none">
+        {/* Top bar */}
+        <SafeAreaView edges={["top"]} style={styles.topBar} pointerEvents="box-none">
           <View style={[styles.statusBadge, { borderColor: badgeColor }]}>
             <View style={[styles.statusDot, { backgroundColor: badgeColor }]} />
             <Text style={[styles.statusLabel, { color: badgeColor }]}>{badgeLabel}</Text>
           </View>
           <TouchableOpacity style={styles.flipButton} onPress={handleFlip}>
-            <Text style={styles.flipIcon}>⟳</Text>
+            <Svg width={18} height={18} viewBox="0 0 24 24" fill="none"
+              stroke={P.text} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+              <Path d="M3 7V5a2 2 0 0 1 2-2h2" />
+              <Path d="M17 3h2a2 2 0 0 1 2 2v2" />
+              <Path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+              <Path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+              <Path d="M8 14s1.5 2 4 2 4-2 4-2" />
+              <Path d="M9 9h.01M15 9h.01" />
+            </Svg>
           </TouchableOpacity>
-        </View>
-
+        </SafeAreaView>
       </TouchableOpacity>
 
-      {/* Bottom panel */}
+      {/* Bottom sheet */}
       <View style={styles.bottomPanel}>
+        <View style={styles.grabber} />
 
-        {/* Scan error — persistent */}
+        {/* Sentence chips */}
+        <ScrollView
+          ref={sentenceRef}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.sentenceScroll}
+          style={{ marginBottom: 4, maxHeight: 48 }}
+        >
+          {sentence.length === 0
+            ? <Text style={styles.sentencePlaceholder}>Sign a letter → tap Add</Text>
+            : sentence.map((l, i) => (
+                <View key={i} style={styles.letterChip}>
+                  <Text style={styles.letterChipText}>{l}</Text>
+                </View>
+              ))
+          }
+        </ScrollView>
+
+        {/* Scan error */}
         {!!scanError && (
           <View style={styles.errorRow}>
             <Text style={styles.errorText}>⚠ {scanError}</Text>

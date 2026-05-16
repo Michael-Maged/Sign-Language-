@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { P } from "../theme";
 
 export const styles = StyleSheet.create({
 
@@ -8,50 +9,16 @@ export const styles = StyleSheet.create({
     backgroundColor: "#000",
   },
 
-  // ── Sentence strip ───────────────────────────────────────────────────────────
-  sentenceBar: {
-    backgroundColor: "rgba(13,27,42,0.97)",
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: "#1E3A5F",
-  },
-  sentenceScroll: {
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    minHeight: 54,
-    alignItems: "center",
-  },
-  sentencePlaceholder: {
-    color: "#475569",
-    fontSize: 13,
-    fontStyle: "italic",
-  },
-  letterChip: {
-    backgroundColor: "#1E3A5F",
-    borderRadius: 8,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    marginHorizontal: 3,
-  },
-  letterChipText: {
-    color: "#fff",
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-
   // ── Camera area ──────────────────────────────────────────────────────────────
   cameraContainer: {
     flex: 1,
     overflow: "hidden",
   },
-  camera: {
-    ...StyleSheet.absoluteFillObject,
-  },
   svgWrapper: {
     ...StyleSheet.absoluteFillObject,
   },
 
-
-  // Top bar — status badge (left) + flip button (right)
+  // ── Top bar ──────────────────────────────────────────────────────────────────
   topBar: {
     position: "absolute",
     top: 0,
@@ -65,7 +32,7 @@ export const styles = StyleSheet.create({
   statusBadge: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "rgba(0,0,0,0.6)",
+    backgroundColor: "rgba(14,17,23,0.75)",
     borderWidth: 1,
     borderRadius: 20,
     paddingHorizontal: 10,
@@ -82,54 +49,75 @@ export const styles = StyleSheet.create({
     fontWeight: "600",
   },
   flipButton: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    backgroundColor: "rgba(0,0,0,0.55)",
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "rgba(14,17,23,0.75)",
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.12)",
     alignItems: "center",
     justifyContent: "center",
   },
   flipIcon: {
-    fontSize: 22,
-    color: "#fff",
+    fontSize: 20,
+    color: P.text,
   },
 
-  // Tap-to-scan hint overlay
-  tapHint: {
-    position: "absolute",
-    bottom: 24,
-    alignSelf: "center",
-    backgroundColor: "rgba(0,0,0,0.5)",
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 20,
-  },
-  tapHintText: {
-    color: "rgba(255,255,255,0.7)",
-    fontSize: 13,
-  },
-
-  // ── Bottom panel ─────────────────────────────────────────────────────────────
+  // ── Bottom sheet ─────────────────────────────────────────────────────────────
   bottomPanel: {
-    backgroundColor: "rgba(13,27,42,0.97)",
+    backgroundColor: P.surface,
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    borderTopWidth: 0.5,
+    borderLeftWidth: 0.5,
+    borderRightWidth: 0.5,
+    borderColor: P.borderH,
     paddingHorizontal: 16,
-    paddingTop: 14,
+    paddingTop: 12,
     paddingBottom: 18,
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: "#1E3A5F",
+  },
+  grabber: {
+    width: 32,
+    height: 3,
+    borderRadius: 2,
+    backgroundColor: P.border,
+    alignSelf: "center",
+    marginBottom: 14,
   },
 
-  errorRow: {
-    backgroundColor: "rgba(248,113,113,0.1)",
+  // ── Sentence chips ────────────────────────────────────────────────────────────
+  sentenceScroll: {
+    paddingHorizontal: 2,
+    paddingBottom: 4,
+    alignItems: "center",
+    minHeight: 40,
+    flexGrow: 0,
+  },
+  sentencePlaceholder: {
+    color: P.textMute,
+    fontSize: 13,
+    fontStyle: "italic",
+  },
+  letterChip: {
+    backgroundColor: P.accentDim,
     borderRadius: 8,
     paddingHorizontal: 10,
-    paddingVertical: 6,
-    marginBottom: 10,
+    paddingVertical: 5,
+    marginHorizontal: 3,
+    borderWidth: 1,
+    borderColor: "rgba(31,227,240,0.2)",
   },
+  letterChipText: {
+    color: P.accent,
+    fontSize: 18,
+    fontWeight: "700",
+  },
+
+  // ── Prediction row ────────────────────────────────────────────────────────────
   predictionRow: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 14,
+    marginVertical: 10,
     minHeight: 56,
   },
   bigLetter: {
@@ -139,68 +127,80 @@ export const styles = StyleSheet.create({
   },
   confBarTrack: {
     flex: 1,
-    height: 8,
-    backgroundColor: "rgba(255,255,255,0.08)",
-    borderRadius: 4,
+    height: 6,
+    backgroundColor: P.surface2,
+    borderRadius: 3,
     overflow: "hidden",
     marginHorizontal: 10,
   },
   confBarFill: {
-    height: 8,
-    borderRadius: 4,
+    height: 6,
+    borderRadius: 3,
   },
   confLabel: {
     fontSize: 12,
-    color: "#94A3B8",
+    color: P.textMute,
     width: 36,
     textAlign: "right",
   },
   hintText: {
-    color: "#475569",
+    color: P.textMute,
     fontSize: 14,
+    fontStyle: "italic",
+  },
+  errorRow: {
+    backgroundColor: "rgba(255,107,122,0.1)",
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    marginBottom: 8,
   },
   errorText: {
-    color: "#F87171",
+    color: P.danger,
     fontSize: 13,
     flex: 1,
   },
 
-  // ── Action buttons ───────────────────────────────────────────────────────────
+  // ── Action buttons ────────────────────────────────────────────────────────────
   controls: {
     flexDirection: "row",
     gap: 8,
+    marginTop: 4,
   },
   btnPrimary: {
     flex: 2,
-    backgroundColor: "#2196F3",
-    borderRadius: 10,
+    backgroundColor: P.accent,
+    borderRadius: 12,
     paddingVertical: 13,
     alignItems: "center",
   },
   btnPrimaryText: {
-    color: "#fff",
+    color: P.bg,
     fontSize: 15,
-    fontWeight: "600",
+    fontWeight: "700",
   },
   btnSecondary: {
     flex: 1,
-    backgroundColor: "rgba(255,255,255,0.08)",
-    borderRadius: 10,
+    backgroundColor: P.surface2,
+    borderRadius: 12,
+    borderWidth: 0.5,
+    borderColor: P.borderH,
     paddingVertical: 13,
     alignItems: "center",
   },
   btnSecondaryText: {
-    color: "#94A3B8",
+    color: P.textDim,
     fontSize: 15,
+    fontWeight: "600",
   },
   btnDisabled: {
     opacity: 0.3,
   },
 
-  // ── Server check / unreachable screen ───────────────────────────────────────
+  // ── Server check / unreachable screen ────────────────────────────────────────
   serverCheckContainer: {
     flex: 1,
-    backgroundColor: "#0D1B2A",
+    backgroundColor: P.bg,
     alignItems: "center",
     justifyContent: "center",
     padding: 32,
@@ -210,71 +210,75 @@ export const styles = StyleSheet.create({
     marginBottom: 16,
   },
   serverCheckTitle: {
-    color: "#fff",
+    color: P.text,
     fontSize: 18,
     fontWeight: "600",
     marginBottom: 6,
     textAlign: "center",
   },
   serverCheckUrl: {
-    color: "#60A5FA",
+    color: P.accent,
     fontSize: 13,
     fontFamily: "monospace" as any,
     marginBottom: 20,
   },
   serverCheckHint: {
-    color: "#94A3B8",
+    color: P.textDim,
     fontSize: 13,
     lineHeight: 22,
     textAlign: "left",
     alignSelf: "stretch",
-    backgroundColor: "rgba(255,255,255,0.05)",
-    borderRadius: 10,
+    backgroundColor: P.surface,
+    borderRadius: 12,
+    borderWidth: 0.5,
+    borderColor: P.borderH,
     padding: 14,
     marginBottom: 12,
   },
   serverCheckDetail: {
-    color: "#F87171",
+    color: P.danger,
     fontSize: 12,
     marginBottom: 20,
     textAlign: "center",
   },
   retryButton: {
-    backgroundColor: "#2196F3",
+    backgroundColor: P.surface2,
+    borderWidth: 1,
+    borderColor: P.accent,
     paddingHorizontal: 32,
     paddingVertical: 13,
-    borderRadius: 10,
+    borderRadius: 12,
   },
   retryButtonText: {
-    color: "#fff",
+    color: P.accent,
     fontSize: 15,
     fontWeight: "600",
   },
 
-  // ── Permission prompt ────────────────────────────────────────────────────────
+  // ── Permission prompt ─────────────────────────────────────────────────────────
   permissionContainer: {
     flex: 1,
-    backgroundColor: "#0D1B2A",
+    backgroundColor: P.bg,
     alignItems: "center",
     justifyContent: "center",
     padding: 32,
   },
   permissionText: {
-    color: "#94A3B8",
+    color: P.textDim,
     textAlign: "center",
     fontSize: 16,
     lineHeight: 24,
     marginBottom: 24,
   },
   permissionButton: {
-    backgroundColor: "#2196F3",
+    backgroundColor: P.accent,
     paddingHorizontal: 28,
     paddingVertical: 13,
-    borderRadius: 10,
+    borderRadius: 12,
   },
   permissionButtonText: {
-    color: "#fff",
+    color: P.bg,
     fontSize: 15,
-    fontWeight: "600",
+    fontWeight: "700",
   },
 });

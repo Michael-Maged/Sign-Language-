@@ -1,0 +1,17 @@
+export const P = {
+  bg:         '#0E1117',
+  bgSoft:     '#141826',
+  surface:    '#1A1E2A',
+  surface2:   '#222738',
+  border:     'rgba(255,255,255,0.07)' as const,
+  borderH:    'rgba(255,255,255,0.12)' as const,
+  text:       '#F2F4F8',
+  textDim:    'rgba(242,244,248,0.62)' as const,
+  textMute:   'rgba(242,244,248,0.40)' as const,
+  accent:     '#1FE3F0',
+  accentDim:  'rgba(31,227,240,0.18)' as const,
+  accentSoft: 'rgba(31,227,240,0.10)' as const,
+  danger:     '#FF6B7A',
+  warn:       '#FFB454',
+  ok:         '#5DE0A6',
+};

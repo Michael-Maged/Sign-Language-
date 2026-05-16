@@ -17,8 +17,8 @@ import pandas as pd
 
 SCRIPT_DIR  = os.path.dirname(os.path.abspath(__file__))
 BACKEND_DIR = os.path.dirname(SCRIPT_DIR)
-CSV_PATH    = os.path.join(BACKEND_DIR, "data", "landmarks.csv")
-SIGNS_DIR   = os.path.join(BACKEND_DIR, "data", "signs")
+CSV_PATH    = os.path.join(BACKEND_DIR, "data", "letters", "landmarks.csv")
+SIGNS_DIR   = os.path.join(BACKEND_DIR, "data", "letters", "signs")
 
 
 def export():

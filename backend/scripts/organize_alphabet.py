@@ -9,8 +9,8 @@ Run from backend/ directory:
 import os
 import shutil
 
-DATASET_DIR = os.path.join("data", "asl_alphabet_train", "asl_alphabet_train")
-OUTPUT_DIR  = os.path.join("data", "signs")
+DATASET_DIR = os.path.join("data", "letters", "asl_alphabet_train", "asl_alphabet_train")
+OUTPUT_DIR  = os.path.join("data", "letters", "signs")
 
 def main():
     if not os.path.exists(DATASET_DIR):

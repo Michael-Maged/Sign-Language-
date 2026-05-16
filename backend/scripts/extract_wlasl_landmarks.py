@@ -27,12 +27,12 @@ SCRIPT_DIR  = os.path.dirname(os.path.abspath(__file__))
 BACKEND_DIR = os.path.dirname(SCRIPT_DIR)
 
 # ── Configure these paths ────────────────────────────────────────────────────
-WLASL_DIR        = os.path.join(BACKEND_DIR, "data", "wlasl_dataset")  # change if needed
-JSON_PATH        = os.path.join(WLASL_DIR, "WLASL_v0.3.json")
-VIDEO_DIR        = os.path.join(WLASL_DIR, "videos")
+DATASET_DIR      = os.path.join(BACKEND_DIR, "data", "words", "msasl")
+JSON_PATH        = os.path.join(DATASET_DIR, "MSASL_train.json")
+VIDEO_DIR        = os.path.join(DATASET_DIR, "videos")
 HAND_MODEL_PATH  = os.path.join(BACKEND_DIR, "models", "hand_landmarker.task")
-OUT_LMS          = os.path.join(BACKEND_DIR, "data", "wlasl_landmarks.npy")
-OUT_LABELS       = os.path.join(BACKEND_DIR, "data", "wlasl_labels.npy")
+OUT_LMS          = os.path.join(BACKEND_DIR, "data", "words", "landmarks.npy")
+OUT_LABELS       = os.path.join(BACKEND_DIR, "data", "words", "labels.npy")
 
 N_WORDS     = 100   # top-N glosses by training instance count
 SEQ_LEN     = 30    # fixed sequence length (frames)
